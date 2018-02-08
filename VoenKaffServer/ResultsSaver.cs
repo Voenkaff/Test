@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VoenKaffServer
@@ -13,8 +10,8 @@ namespace VoenKaffServer
     {
         private readonly DynamicParams _parameters;
 
-        public Boolean testsSaved = true;
-        public Boolean studySaved = true;
+        public bool TestsSaved = true;
+        public bool StudySaved = true;
         public DataGridView _testsTable;
         public DataGridView _studyTable;
 
@@ -36,17 +33,17 @@ namespace VoenKaffServer
             _parameters = new DynamicParams();
         }
 
-        public void saveResults(DataGridView dataGV)
+        public void SaveResults(DataGridView dataGridView)
         {
             courseAndRows = new Dictionary<string, List<DataGridViewRow>> { };
             listColumns = new List<DataGridViewColumn> { };
             docNameAndRows = new Dictionary<string, List<DataGridViewRow>> { };
-            initCourseAndRows(dataGV);
+            initCourseAndRows(dataGridView);
 
             foreach (KeyValuePair<string, List<DataGridViewRow>> keyValue in courseAndRows)
             {
                 docNameAndRows.Clear();
-                string courseDir = _parameters.Get().ResultsPath  + @"\" + _typeRes + @"\" + keyValue.Key;
+                var courseDir = _parameters.Get().ResultsPath  + @"\" + _typeRes + @"\" + keyValue.Key;
                 if (!Directory.Exists(courseDir))
                 {
                     Directory.CreateDirectory(courseDir);

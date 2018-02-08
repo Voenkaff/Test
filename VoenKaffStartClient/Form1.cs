@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Windows.Forms;
-using SerializablePicutre;
-using VoenKaffStartClient;
 using VoenKaffStartClient.Properties;
 using VoenKaffStartClient.Senders;
 using VoenKaffStartClient.Wrappers;
@@ -171,8 +164,7 @@ namespace VoenKaffStartClient
                 startButton.Enabled = false;
             }
         }
-
-
+        
         private void startButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -192,9 +184,6 @@ namespace VoenKaffStartClient
                     index = i;
                 }
             }
-            
-            
-            
             
             if (radioButtonTestModeTest.Checked)
             {
@@ -265,7 +254,5 @@ namespace VoenKaffStartClient
         {
             Environment.Exit(0);
         }
-
-        
     }
 }

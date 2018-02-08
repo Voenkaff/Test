@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using Models;
 using Models.Socket;
 using Models.TransferObjects;
+using Services;
 
-namespace Services
+namespace Client.Services.Implementations
 {
-    public class TcpClientSocketService
+    public class ServerConnectionService : IServerConnectionService
     {
         private readonly string _ip;
         private readonly int _port;
 
-        public TcpClientSocketService(string ip, int port)
+        public ServerConnectionService(string ip, int port)
         {
             _ip = ip;
             _port = port;
         }
 
-        public List<TestTransferObject> GetTests()
+        public List<InformationObject> GetTestInformationObjects()
         {
             TcpClient client = null;
             NetworkStream stream = null;
@@ -32,33 +33,44 @@ namespace Services
                 var streamWrapper = new StreamWrapperService(stream);
 
                 streamWrapper.SendCommand(Command.GetTestInformation());
-                var responses = streamWrapper.ReciveInformationObjects();
-
-                var testNames = responses.Select(response => response.FileName).ToList();
-
-                streamWrapper.SendCommand(Command.Tests(testNames));
-                var reciveTests = streamWrapper.ReciveTests();
-
-                return reciveTests;
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine("SocketException: {0}", e);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: {0}", e.Message);
+                return streamWrapper.ReciveInformationObjects().ToList();
             }
             finally
             {
                 stream?.Close();
                 client?.Close();
             }
-
-            return null;
         }
 
-        public List<ImageTransferObject> GetImages()
+        public List<TestTransferObject> GetTests(List<InformationObject> testInformationObjects)
+        {
+            TcpClient client = null;
+            NetworkStream stream = null;
+
+            try
+            {
+                client = new TcpClient();
+                client.Connect(_ip, _port);
+
+                stream = client.GetStream();
+                var streamWrapper = new StreamWrapperService(stream);
+
+
+                var testNames = testInformationObjects.Select(response => response.FileName).ToList();
+
+                streamWrapper.SendCommand(Command.Tests(testNames));
+                var reciveTests = streamWrapper.ReciveTests();
+
+                return reciveTests;
+            }
+            finally
+            {
+                stream?.Close();
+                client?.Close();
+            }
+        }
+
+        public List<InformationObject> GetImageInfromationObjects()
         {
             TcpClient client = null;
             NetworkStream stream = null;
@@ -72,7 +84,28 @@ namespace Services
                 var streamWrapperService = new StreamWrapperService(stream);
 
                 streamWrapperService.SendCommand(Command.GetImagesInfromation());
-                var informationObjects = streamWrapperService.ReciveInformationObjects();
+
+                return streamWrapperService.ReciveInformationObjects().ToList(); 
+            }
+            finally
+            {
+                stream?.Close();
+                client?.Close();
+            }
+        }
+
+        public List<ImageTransferObject> GetImages(List<InformationObject> informationObjects)
+        {
+            TcpClient client = null;
+            NetworkStream stream = null;
+
+            try
+            {
+                client = new TcpClient();
+                client.Connect(_ip, _port);
+
+                stream = client.GetStream();
+                var streamWrapperService = new StreamWrapperService(stream);
 
                 var result = new List<ImageTransferObject>();
 
@@ -89,21 +122,11 @@ namespace Services
 
                 return result;
             }
-            catch (SocketException e)
-            {
-                Console.WriteLine("SocketException: {0}", e);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: {0}", e.Message);
-            }
             finally
             {
                 stream?.Close();
                 client?.Close();
             }
-
-            return null;
         }
     }
 }

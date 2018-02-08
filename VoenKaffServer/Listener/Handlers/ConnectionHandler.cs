@@ -36,8 +36,8 @@ namespace VoenKaffServer.Listener.Handlers
 
                 switch (command.CommandType)
                 {
-                    case CommandType.Info:
-                        new UpdateHandler(streamWrapper).Handle(command);
+                    case CommandType.GetTestInformation:
+                        new GetTestInformationHandler(streamWrapper).Handle(command);
                         break;
                     case CommandType.GetTests:
                         new GetTestsHandler(streamWrapper).Handle(command);

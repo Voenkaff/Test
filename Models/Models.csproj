@@ -54,7 +54,7 @@
     <Compile Include="Task.cs" />
     <Compile Include="TaskElement.cs" />
     <Compile Include="Test.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="TestContainer.cs" />
     <Compile Include="TransferObjects\TestTransferObject.cs" />
   </ItemGroup>
   <ItemGroup>

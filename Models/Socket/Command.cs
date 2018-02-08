@@ -8,11 +8,11 @@ namespace Models.Socket
 
         public List<string> Args { get; set; }
 
-        public static Command Update()
+        public static Command GetTestInformation()
         {
             return new Command
             {
-                CommandType = CommandType.Info
+                CommandType = CommandType.GetTestInformation
             };
         }
 
@@ -53,7 +53,7 @@ namespace Models.Socket
 
     public enum CommandType
     {
-        Info,
+        GetTestInformation,
         Close,
         GetTests,
         GetImage,

@@ -87,7 +87,7 @@
     <Compile Include="Listener\Handlers\GetImagesInformationHandler.cs" />
     <Compile Include="Listener\Handlers\GetTestsHandler.cs" />
     <Compile Include="Listener\Handlers\ICommandHandler.cs" />
-    <Compile Include="Listener\Handlers\UpdateHandler.cs" />
+    <Compile Include="Listener\Handlers\GetTestInformationHandler.cs" />
     <Compile Include="Listener\Listener.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>

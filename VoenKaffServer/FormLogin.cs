@@ -52,7 +52,7 @@ namespace VoenKaffServer
 
 
 
-            if (_formStart.ResultsSaver.testsSaved == false || _formStart.ResultsSaver.testsSaved == false)
+            if (_formStart.ResultsSaver.TestsSaved == false || _formStart.ResultsSaver.TestsSaved == false)
             {
                 var messageBox = MessageBox.Show("Закрыть без сохранения результатов? \n(Чтобы сохранить результаты, войдите как преподаватель)", "Есть несохраненные результаты!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (messageBox == DialogResult.OK)

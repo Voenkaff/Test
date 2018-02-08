@@ -74,10 +74,10 @@ namespace Services
             return tests;
         }
 
-        public Tests ReciveTest(string testName)
+        public TestContainer ReciveTest(string testName)
         {
             var json = ReciveString();
-            return JsonConvert.DeserializeObject<Tests>(json);
+            return JsonConvert.DeserializeObject<TestContainer>(json);
         }
 
         public List<byte[]> ReciveImages()

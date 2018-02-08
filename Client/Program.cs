@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Client.Forms;
 
-namespace VoenKaffServer
+namespace Client
 {
     public static class Program
     {
@@ -13,7 +14,7 @@ namespace VoenKaffServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+            Application.Run(new LoadingForm());
         }
     }
 }

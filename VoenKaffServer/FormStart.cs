@@ -72,7 +72,7 @@ namespace VoenKaffServer
                     resultObj.Mark,
                     resultObj.Timestamp
                     );
-                    ResultsSaver.testsSaved = false;
+                    ResultsSaver.TestsSaved = false;
                 }
 
                 if (resultObj.ResultType == "Тренировка")
@@ -85,7 +85,7 @@ namespace VoenKaffServer
                     resultObj.Mark,
                     resultObj.Timestamp
                     );
-                    ResultsSaver.studySaved = false;
+                    ResultsSaver.StudySaved = false;
                 }
             }
         }
@@ -181,15 +181,15 @@ namespace VoenKaffServer
         private void тестированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ResultsSaver._typeRes = "Тестирование";
-            ResultsSaver.saveResults(ResultsSaver._testsTable);
-            ResultsSaver.testsSaved = true;
+            ResultsSaver.SaveResults(ResultsSaver._testsTable);
+            ResultsSaver.TestsSaved = true;
         }
 
         private void обучениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ResultsSaver._typeRes = "Обучение";
-            ResultsSaver.saveResults(ResultsSaver._studyTable);
-            ResultsSaver.studySaved = true;
+            ResultsSaver.SaveResults(ResultsSaver._studyTable);
+            ResultsSaver.StudySaved = true;
         }
 
         private void тестированиеИОбучениеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -202,24 +202,24 @@ namespace VoenKaffServer
             try
             {
                 UpdateResults();
-                if (ResultsSaver.testsSaved == false)
+                if (ResultsSaver.TestsSaved == false)
                 {
                     //var messageBox = MessageBox.Show("Есть несохраненные результаты ТЕСТИРОВАНИЯ! Сохранить их перед закрытием?", "Сохранение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     //if (messageBox == DialogResult.Yes)
                     {
                         ResultsSaver._typeRes = "Тестирование";
-                        ResultsSaver.saveResults(ResultsSaver._testsTable);
-                        ResultsSaver.testsSaved = true;
+                        ResultsSaver.SaveResults(ResultsSaver._testsTable);
+                        ResultsSaver.TestsSaved = true;
                     }
                 }
-                if (ResultsSaver.studySaved == false)
+                if (ResultsSaver.StudySaved == false)
                 {
                     //var messageBox = MessageBox.Show("Есть несохраненные результаты ОБУЧЕНИЯ! Сохранить их перед закрытием?", "Сохранение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     //if (messageBox == DialogResult.Yes)
                     {
                         ResultsSaver._typeRes = "Обучение";
-                        ResultsSaver.saveResults(ResultsSaver._studyTable);
-                        ResultsSaver.studySaved = true;
+                        ResultsSaver.SaveResults(ResultsSaver._studyTable);
+                        ResultsSaver.StudySaved = true;
                     }
                 }
             }

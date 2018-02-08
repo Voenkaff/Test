@@ -2,7 +2,7 @@
 
 namespace Models
 {
-    public class Tests
+    public class TestContainer
     {
         public List<Test> TestList { get; set; } = new List<Test>();
         public Dictionary<string, List<string>> PlatoonList { get; set; } = new Dictionary<string, List<string>>();

@@ -35,7 +35,7 @@ namespace TCPTester
                 {
                     using (var writeStream = new StreamWriter(stream))
                     {
-                        writeStream.Write(JsonConvert.SerializeObject(testTransferObject.Test));
+                        writeStream.Write(JsonConvert.SerializeObject(testTransferObject.TestContainer));
                     }
                 }
             }

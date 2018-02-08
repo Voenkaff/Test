@@ -4,12 +4,12 @@ using Services.Services;
 
 namespace VoenKaffServer.Listener.Handlers
 {
-    public class UpdateHandler : ICommandHandler
+    public class GetTestInformationHandler : ICommandHandler
     {
         private readonly IStreamWrapperService _streamWrapperService;
         private readonly ITestDirectoryService _testDirectoryService;
 
-        public UpdateHandler(IStreamWrapperService streamWrapperService)
+        public GetTestInformationHandler(IStreamWrapperService streamWrapperService)
         {
             _streamWrapperService = streamWrapperService;
             _testDirectoryService = new TestDirectoryService(Configuration.GetTestFolderPath());
