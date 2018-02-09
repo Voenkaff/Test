@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Models;
-using Services.Services;
 using Services.Services.Implementations;
 
 namespace Editor.Forms
 {
     public partial class SubjectForm : Form
     {
-        private readonly ISubjectFileService _subjectFileService;
+        private readonly SubjectFileService _subjectFileService;
 
         public SubjectForm()
         {

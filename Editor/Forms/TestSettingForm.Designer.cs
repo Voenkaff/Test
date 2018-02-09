@@ -41,7 +41,7 @@
             this.InputMarksLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.SelectSubjectErrorLabel = new System.Windows.Forms.Label();
-            this.SelectSubjectTextBox = new System.Windows.Forms.ComboBox();
+            this.SelectSubjectComboBox = new System.Windows.Forms.ComboBox();
             this.SelectSubjectLabel = new System.Windows.Forms.Label();
             this.InputTestNameErrorLabel = new System.Windows.Forms.Label();
             this.InputTestNameLabel = new System.Windows.Forms.Label();
@@ -165,7 +165,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.SelectSubjectErrorLabel);
-            this.groupBox3.Controls.Add(this.SelectSubjectTextBox);
+            this.groupBox3.Controls.Add(this.SelectSubjectComboBox);
             this.groupBox3.Controls.Add(this.SelectSubjectLabel);
             this.groupBox3.Location = new System.Drawing.Point(123, 114);
             this.groupBox3.Name = "groupBox3";
@@ -185,14 +185,14 @@
             this.SelectSubjectErrorLabel.TabIndex = 16;
             this.SelectSubjectErrorLabel.Text = "* Выберите предмет *";
             // 
-            // SelectSubjectTextBox
+            // SelectSubjectComboBox
             // 
-            this.SelectSubjectTextBox.FormattingEnabled = true;
-            this.SelectSubjectTextBox.Location = new System.Drawing.Point(53, 51);
-            this.SelectSubjectTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.SelectSubjectTextBox.Name = "SelectSubjectTextBox";
-            this.SelectSubjectTextBox.Size = new System.Drawing.Size(231, 21);
-            this.SelectSubjectTextBox.TabIndex = 2;
+            this.SelectSubjectComboBox.FormattingEnabled = true;
+            this.SelectSubjectComboBox.Location = new System.Drawing.Point(53, 51);
+            this.SelectSubjectComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.SelectSubjectComboBox.Name = "SelectSubjectComboBox";
+            this.SelectSubjectComboBox.Size = new System.Drawing.Size(231, 21);
+            this.SelectSubjectComboBox.TabIndex = 2;
             // 
             // SelectSubjectLabel
             // 
@@ -243,6 +243,7 @@
             this.SaveTestSettingsButton.TabIndex = 6;
             this.SaveTestSettingsButton.Text = "Сохранить";
             this.SaveTestSettingsButton.UseVisualStyleBackColor = true;
+            this.SaveTestSettingsButton.Click += new System.EventHandler(this.SaveTestSettingsButton_Click);
             // 
             // groupBox2
             // 
@@ -331,7 +332,7 @@
         private System.Windows.Forms.Label InputMarksLabel;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label SelectSubjectErrorLabel;
-        private System.Windows.Forms.ComboBox SelectSubjectTextBox;
+        private System.Windows.Forms.ComboBox SelectSubjectComboBox;
         private System.Windows.Forms.Label SelectSubjectLabel;
         private System.Windows.Forms.Label InputTestNameErrorLabel;
         private System.Windows.Forms.Label InputTestNameLabel;
