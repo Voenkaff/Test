@@ -18,7 +18,7 @@ namespace VoenKaffStartClient.Senders
 
         public OnTimerSender()
         {
-            thread= new Thread(Connect);
+            thread = new Thread(Connect);
         }
 
         public void Start()
@@ -43,6 +43,7 @@ namespace VoenKaffStartClient.Senders
                         {
                             updater.Connect(JsonConvert.SerializeObject(result));
                         }
+
                         File.Delete(Resources.ResultData);
                     }
                 }

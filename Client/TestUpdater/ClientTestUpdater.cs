@@ -13,15 +13,22 @@ namespace Client.TestUpdater
         {
             _serverConnectionService = new ServerConnectionService(serverId, serverPort);
             _clientTestFileService =
-                new ClientTestFileService(ClientConfiguration.TestFolder, ClientConfiguration.ImageFolder);
+                new ClientTestFileService(ClientConfiguration.GetInstance().TestFolder, ClientConfiguration.GetInstance().ImageFolder);
         }
 
         public void Update(BackgroundWorker worker, DoWorkEventArgs e)
         {
+            if (!_serverConnectionService.IsConnected())
+            {
+                return;
+            }
+
             var state = new ClientTestUpdaterState {State = ClientTestUpdaterStates.GetInformationObjectsFromServer};
             worker.ReportProgress(0, state);
 
             var testInformationObjects = _serverConnectionService.GetTestInformationObjects();
+
+            //TODO Добавить получение списка тестов на клиенте. Удалять ненужные тесты и обновлять только те тесты, которые надо
 
             state.State = ClientTestUpdaterStates.GetTests;
             worker.ReportProgress(0, state);
@@ -32,6 +39,8 @@ namespace Client.TestUpdater
             worker.ReportProgress(0, state);
 
             var imageInfromationObjects = _serverConnectionService.GetImageInfromationObjects();
+
+            //TODO Добавить получение списка тестов на клиенте. Удалять ненужные изображения и обновлять только те изображения, которые надо
 
             state.State = ClientTestUpdaterStates.GetImages;
             worker.ReportProgress(0, state);

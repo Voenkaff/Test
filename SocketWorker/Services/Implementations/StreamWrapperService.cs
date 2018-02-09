@@ -5,9 +5,8 @@ using Models;
 using Models.Socket;
 using Models.TransferObjects;
 using Newtonsoft.Json;
-using Services.Services;
 
-namespace Services
+namespace Services.Services.Implementations
 {
     public class StreamWrapperService : IStreamWrapperService
     {
@@ -39,6 +38,12 @@ namespace Services
         public IEnumerable<InformationObject> ReciveInformationObjects()
         {
             return JsonConvert.DeserializeObject<List<InformationObject>>(ReciveString());
+        }
+
+        public T ReciveObject<T>()
+        {
+            var json = ReciveString();
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
         public string ReciveString()

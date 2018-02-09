@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using Models;
 using Models.Socket;
 using Models.TransferObjects;
-using Services;
+using Services.Services.Implementations;
 
 namespace Client.Services.Implementations
 {
@@ -19,82 +19,54 @@ namespace Client.Services.Implementations
             _port = port;
         }
 
-        public List<InformationObject> GetTestInformationObjects()
+        public bool IsConnected()
         {
             TcpClient client = null;
-            NetworkStream stream = null;
 
             try
             {
                 client = new TcpClient();
                 client.Connect(_ip, _port);
-
-                stream = client.GetStream();
-                var streamWrapper = new StreamWrapperService(stream);
-
-                streamWrapper.SendCommand(Command.GetTestInformation());
-                return streamWrapper.ReciveInformationObjects().ToList();
+                return true;
+            }
+            catch (SocketException e)
+            {
+                return false;
             }
             finally
             {
-                stream?.Close();
                 client?.Close();
             }
+        }
+
+        public List<InformationObject> GetTestInformationObjects()
+        {
+            return Get<List<InformationObject>>(Command.GetTestInformation());
         }
 
         public List<TestTransferObject> GetTests(List<InformationObject> testInformationObjects)
         {
-            TcpClient client = null;
-            NetworkStream stream = null;
-
-            try
-            {
-                client = new TcpClient();
-                client.Connect(_ip, _port);
-
-                stream = client.GetStream();
-                var streamWrapper = new StreamWrapperService(stream);
-
-
-                var testNames = testInformationObjects.Select(response => response.FileName).ToList();
-
-                streamWrapper.SendCommand(Command.Tests(testNames));
-                var reciveTests = streamWrapper.ReciveTests();
-
-                return reciveTests;
-            }
-            finally
-            {
-                stream?.Close();
-                client?.Close();
-            }
+            var testNames = testInformationObjects.Select(response => response.FileName).ToList();
+            return Get<List<TestTransferObject>>(Command.Tests(testNames));
         }
 
         public List<InformationObject> GetImageInfromationObjects()
         {
-            TcpClient client = null;
-            NetworkStream stream = null;
-
-            try
-            {
-                client = new TcpClient();
-                client.Connect(_ip, _port);
-
-                stream = client.GetStream();
-                var streamWrapperService = new StreamWrapperService(stream);
-
-                streamWrapperService.SendCommand(Command.GetImagesInfromation());
-
-                return streamWrapperService.ReciveInformationObjects().ToList(); 
-            }
-            finally
-            {
-                stream?.Close();
-                client?.Close();
-            }
+            return Get<List<InformationObject>>(Command.GetImagesInfromation());
         }
 
         public List<ImageTransferObject> GetImages(List<InformationObject> informationObjects)
+        {
+            var commands = informationObjects.Select(i => Command.GetImages(i.FileName)).ToList();
+            return Get<ImageTransferObject>(commands);
+        }
+
+        public T Get<T>(Command command)
+        {
+            return Get<T>(new List<Command> {command})[0];
+        }
+
+        public List<T> Get<T>(List<Command> commands)
         {
             TcpClient client = null;
             NetworkStream stream = null;
@@ -107,17 +79,12 @@ namespace Client.Services.Implementations
                 stream = client.GetStream();
                 var streamWrapperService = new StreamWrapperService(stream);
 
-                var result = new List<ImageTransferObject>();
+                var result = new List<T>();
 
-                foreach (var informationObject in informationObjects)
+                foreach (var command in commands)
                 {
-                    streamWrapperService.SendCommand(Command.GetImages(informationObject.FileName));
-                    var recived = streamWrapperService.ReciveBytes();
-                    result.Add(new ImageTransferObject
-                    {
-                        Name = informationObject.FileName,
-                        Image = recived
-                    });
+                    streamWrapperService.SendCommand(command);
+                    result.Add(streamWrapperService.ReciveObject<T>());
                 }
 
                 return result;

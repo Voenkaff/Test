@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Platoon.cs" />
+    <Compile Include="Subject.cs" />
     <Compile Include="TransferObjects\ImageTransferObject.cs" />
     <Compile Include="InformationObject.cs" />
     <Compile Include="Marks.cs" />

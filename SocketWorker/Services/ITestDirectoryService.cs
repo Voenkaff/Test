@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models;
+using Models.TransferObjects;
 
 namespace Services.Services
 {
@@ -7,6 +8,6 @@ namespace Services.Services
     {
         List<TestContainer> GetTests();
         List<InformationObject> GetTestInformationObjects();
-        byte[] GetImage(string name);
+        ImageTransferObject GetImage(string name);
     }
 }

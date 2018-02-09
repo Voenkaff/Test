@@ -4,9 +4,8 @@ using System.Linq;
 using Models;
 using Models.TransferObjects;
 using Newtonsoft.Json;
-using Services.Services;
 
-namespace Services
+namespace Services.Services.Implementations
 {
     public class TestDirectoryService : ITestDirectoryService
     {
@@ -50,12 +49,18 @@ namespace Services
             return result;
         }
 
-        public byte[] GetImage(string name)
+        public ImageTransferObject GetImage(string name)
         {
             var directoryInfo = new DirectoryInfo($"{_testDirectoryPath}\\picture");
             var fileInfo = directoryInfo.EnumerateFiles().FirstOrDefault(p => p.Name.Equals(name));
 
-            return fileInfo == null ? null : File.ReadAllBytes(fileInfo.FullName);
+            return fileInfo == null
+                ? null
+                : new ImageTransferObject
+                {
+                    Image = File.ReadAllBytes(fileInfo.FullName),
+                    Name = fileInfo.Name
+                };
         }
 
         public List<InformationObject> GetImageInformationObjects()

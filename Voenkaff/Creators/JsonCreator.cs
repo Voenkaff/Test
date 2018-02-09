@@ -1,27 +1,31 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Voenkaff.Wrappers;
 
-namespace Voenkaff.Wrappers
+namespace Voenkaff.Creators
 {
-    class JsonCreator
+    public class JsonCreator
     {
-        public string CreateTestCollection(List<Voenkaff.Test> tests)
+
+        public string CreateTestCollection(List<Test> tests)
         {
-            var json = "[";
+            var jsonTests = new List<Wrappers.Test>();
             foreach (var test in tests)
             {
-                json += CreateTestJsonMessage(test) + ",";
+                jsonTests.Add(CreateTestJsonMessage(test));
             }
 
-            return json.Substring(0, json.Length - 1) + "]";
+            return JsonConvert.SerializeObject(new Tests{PlatoonList = VzvodAndLs.Get(),TestList = jsonTests, CourseList = Courses.Get()},Formatting.Indented);
         }
+        
 
-        public string CreateTestJsonMessage(Voenkaff.Test testObj)
+        private Wrappers.Test CreateTestJsonMessage(Test testObj)
         {
-            var test = new Test
+            var test = new Wrappers.Test
             {
                 Name = testObj.TestName,
+                Course = testObj.Course,
                 Marks = new Marks
                 {
                     Excellent = testObj.ListMarks[0],
@@ -29,11 +33,11 @@ namespace Voenkaff.Wrappers
                     Satisfactory = testObj.ListMarks[2]
                 }
             };
-
-            foreach (var task in testObj.ListPanelsTasks)
+            
+            foreach (KeyValuePair<LinkLabel, PanelWrapper> keyValue in testObj.ListPanelsTasks)
             {
-                var questions = task.Entity.Controls.Find("panelQuestion", false)[0];
-                var answers = task.Entity.Controls.Find("panelAnswer", false)[0];
+                var questions = keyValue.Value.Entity.Controls.Find("panelQuestion", false)[0];
+                //var answers = task.Entity.Controls.Find("panelAnswer", false)[0];
                 var taskElements = new List<TaskElement>();
                 foreach (Control taskElement in questions.Controls)
                 {
@@ -49,12 +53,13 @@ namespace Voenkaff.Wrappers
                     };
                     if (taskElement is TextBox)
                     {
-                        element.Answer = answers.Controls.Find(taskElement.Name, false)[0].Controls[0].Text;
+                        element.Answer = taskElement.Text;
+                        element.Index = taskElement.TabIndex;
                     }
 
                     if (taskElement is PictureBox)
                     {
-                        element.Media = "picture/" + ((PictureBox) taskElement).Name;
+                        element.Media = "picture\\" + ((PictureBox) taskElement).Name+".bin";
                     }
 
                     if (taskElement is RichTextBox)
@@ -69,7 +74,8 @@ namespace Voenkaff.Wrappers
                 test.Tasks.Add(tasks);
             }
 
-            return JsonConvert.SerializeObject(test, Formatting.Indented);
+            
+            return test;
         }
     }
 }

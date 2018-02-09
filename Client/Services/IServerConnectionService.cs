@@ -6,6 +6,7 @@ namespace Client.Services
 {
     public interface IServerConnectionService
     {
+        bool IsConnected();
         List<InformationObject> GetTestInformationObjects();
         List<TestTransferObject> GetTests(List<InformationObject> testInformationObjects);
         List<InformationObject> GetImageInfromationObjects();

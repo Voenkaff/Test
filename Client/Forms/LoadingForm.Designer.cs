@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadingForm));
             this.LoadingStatusLabel = new System.Windows.Forms.Label();
             this.LoadingStatusProgressBar = new System.Windows.Forms.ProgressBar();
-            this.StartLoadingButton = new System.Windows.Forms.Button();
             this.LoadingTestBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
@@ -45,13 +44,6 @@
             resources.ApplyResources(this.LoadingStatusProgressBar, "LoadingStatusProgressBar");
             this.LoadingStatusProgressBar.Name = "LoadingStatusProgressBar";
             // 
-            // StartLoadingButton
-            // 
-            resources.ApplyResources(this.StartLoadingButton, "StartLoadingButton");
-            this.StartLoadingButton.Name = "StartLoadingButton";
-            this.StartLoadingButton.UseVisualStyleBackColor = true;
-            this.StartLoadingButton.Click += new System.EventHandler(this.StartLoadingButton_Click);
-            // 
             // LoadingTestBackgroundWorker
             // 
             this.LoadingTestBackgroundWorker.WorkerReportsProgress = true;
@@ -64,7 +56,6 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.StartLoadingButton);
             this.Controls.Add(this.LoadingStatusProgressBar);
             this.Controls.Add(this.LoadingStatusLabel);
             this.Name = "LoadingForm";
@@ -78,7 +69,6 @@
 
         private System.Windows.Forms.Label LoadingStatusLabel;
         private System.Windows.Forms.ProgressBar LoadingStatusProgressBar;
-        private System.Windows.Forms.Button StartLoadingButton;
         private System.ComponentModel.BackgroundWorker LoadingTestBackgroundWorker;
     }
 }

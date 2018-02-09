@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelChooseCourse = new System.Windows.Forms.Label();
+            this.comboBoxCourse = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.checkBoxIsFirstOpen = new System.Windows.Forms.CheckBox();
             this.buttonNext = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -36,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxUserChooseTestName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelMarksAreGrow = new System.Windows.Forms.Label();
             this.labelOnlyDigit = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,6 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,20 +61,64 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.checkBoxIsFirstOpen);
             this.panel1.Controls.Add(this.buttonNext);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(581, 402);
+            this.panel1.Size = new System.Drawing.Size(581, 509);
             this.panel1.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.labelChooseCourse);
+            this.groupBox3.Controls.Add(this.comboBoxCourse);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Location = new System.Drawing.Point(123, 114);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(329, 111);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            // 
+            // labelChooseCourse
+            // 
+            this.labelChooseCourse.AutoSize = true;
+            this.labelChooseCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelChooseCourse.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.labelChooseCourse.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelChooseCourse.Location = new System.Drawing.Point(93, 83);
+            this.labelChooseCourse.Name = "labelChooseCourse";
+            this.labelChooseCourse.Size = new System.Drawing.Size(153, 17);
+            this.labelChooseCourse.TabIndex = 16;
+            this.labelChooseCourse.Text = "* Выберите предмет *";
+            // 
+            // comboBoxCourse
+            // 
+            this.comboBoxCourse.FormattingEnabled = true;
+            this.comboBoxCourse.Location = new System.Drawing.Point(53, 51);
+            this.comboBoxCourse.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxCourse.Name = "comboBoxCourse";
+            this.comboBoxCourse.Size = new System.Drawing.Size(231, 21);
+            this.comboBoxCourse.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.label9.Location = new System.Drawing.Point(68, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(185, 24);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Выберите предмет";
             // 
             // checkBoxIsFirstOpen
             // 
             this.checkBoxIsFirstOpen.AutoSize = true;
             this.checkBoxIsFirstOpen.Checked = true;
             this.checkBoxIsFirstOpen.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxIsFirstOpen.Enabled = false;
             this.checkBoxIsFirstOpen.Location = new System.Drawing.Point(499, 22);
             this.checkBoxIsFirstOpen.Name = "checkBoxIsFirstOpen";
             this.checkBoxIsFirstOpen.Size = new System.Drawing.Size(15, 14);
@@ -80,7 +130,7 @@
             // 
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNext.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.buttonNext.Location = new System.Drawing.Point(216, 330);
+            this.buttonNext.Location = new System.Drawing.Point(215, 447);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(140, 45);
             this.buttonNext.TabIndex = 5;
@@ -93,9 +143,9 @@
             this.groupBox2.Controls.Add(this.labelLabelErrorMin3);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.textBoxUserChooseTestName);
-            this.groupBox2.Location = new System.Drawing.Point(163, 22);
+            this.groupBox2.Location = new System.Drawing.Point(123, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 100);
+            this.groupBox2.Size = new System.Drawing.Size(329, 100);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
@@ -105,7 +155,7 @@
             this.labelLabelErrorMin3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelLabelErrorMin3.Font = new System.Drawing.Font("Century Gothic", 9.25F);
             this.labelLabelErrorMin3.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelLabelErrorMin3.Location = new System.Drawing.Point(50, 74);
+            this.labelLabelErrorMin3.Location = new System.Drawing.Point(93, 72);
             this.labelLabelErrorMin3.Name = "labelLabelErrorMin3";
             this.labelLabelErrorMin3.Size = new System.Drawing.Size(160, 17);
             this.labelLabelErrorMin3.TabIndex = 6;
@@ -115,7 +165,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(49, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(236, 24);
             this.label1.TabIndex = 0;
@@ -123,13 +173,14 @@
             // 
             // textBoxUserChooseTestName
             // 
-            this.textBoxUserChooseTestName.Location = new System.Drawing.Point(10, 51);
+            this.textBoxUserChooseTestName.Location = new System.Drawing.Point(53, 49);
             this.textBoxUserChooseTestName.Name = "textBoxUserChooseTestName";
             this.textBoxUserChooseTestName.Size = new System.Drawing.Size(232, 20);
             this.textBoxUserChooseTestName.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelMarksAreGrow);
             this.groupBox1.Controls.Add(this.labelOnlyDigit);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -141,11 +192,23 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(124, 128);
+            this.groupBox1.Location = new System.Drawing.Point(123, 231);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 196);
+            this.groupBox1.Size = new System.Drawing.Size(329, 210);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // labelMarksAreGrow
+            // 
+            this.labelMarksAreGrow.AutoSize = true;
+            this.labelMarksAreGrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelMarksAreGrow.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.labelMarksAreGrow.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelMarksAreGrow.Location = new System.Drawing.Point(14, 182);
+            this.labelMarksAreGrow.Name = "labelMarksAreGrow";
+            this.labelMarksAreGrow.Size = new System.Drawing.Size(300, 17);
+            this.labelMarksAreGrow.TabIndex = 15;
+            this.labelMarksAreGrow.Text = "* Отлично > Хорошо > Удовлетворительно *";
             // 
             // labelOnlyDigit
             // 
@@ -184,21 +247,21 @@
             this.textBoxMark4.Location = new System.Drawing.Point(270, 98);
             this.textBoxMark4.Name = "textBoxMark4";
             this.textBoxMark4.Size = new System.Drawing.Size(48, 20);
-            this.textBoxMark4.TabIndex = 10;
+            this.textBoxMark4.TabIndex = 3;
             // 
             // textBoxMark3
             // 
             this.textBoxMark3.Location = new System.Drawing.Point(270, 130);
             this.textBoxMark3.Name = "textBoxMark3";
             this.textBoxMark3.Size = new System.Drawing.Size(48, 20);
-            this.textBoxMark3.TabIndex = 9;
+            this.textBoxMark3.TabIndex = 4;
             // 
             // textBoxMark5
             // 
             this.textBoxMark5.Location = new System.Drawing.Point(270, 65);
             this.textBoxMark5.Name = "textBoxMark5";
             this.textBoxMark5.Size = new System.Drawing.Size(48, 20);
-            this.textBoxMark5.TabIndex = 7;
+            this.textBoxMark5.TabIndex = 2;
             // 
             // label6
             // 
@@ -244,7 +307,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.label2.Location = new System.Drawing.Point(44, 16);
+            this.label2.Location = new System.Drawing.Point(42, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(249, 24);
             this.label2.TabIndex = 2;
@@ -254,13 +317,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 427);
+            this.ClientSize = new System.Drawing.Size(606, 534);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Name = "FormChooseTestName";
-            this.Text = "FormChooseTestName";
+            this.Text = "Добавление теста";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -290,5 +355,10 @@
         private System.Windows.Forms.Label labelLabelErrorMin3;
         private System.Windows.Forms.Label labelOnlyDigit;
         private System.Windows.Forms.CheckBox checkBoxIsFirstOpen;
+        private System.Windows.Forms.Label labelMarksAreGrow;
+        private System.Windows.Forms.ComboBox comboBoxCourse;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label labelChooseCourse;
     }
 }

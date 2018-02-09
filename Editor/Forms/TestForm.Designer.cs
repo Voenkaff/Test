@@ -1,0 +1,228 @@
+﻿namespace Editor.Forms
+{
+    partial class TestForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.saveTest = new System.Windows.Forms.SaveFileDialog();
+            this.panelTaskStart = new System.Windows.Forms.Panel();
+            this.TestCreatorPanel = new System.Windows.Forms.Panel();
+            this.panelMiddle = new System.Windows.Forms.Panel();
+            this.InsertTextButton = new System.Windows.Forms.Button();
+            this.InsertImageButton = new System.Windows.Forms.Button();
+            this.InsertAnswerButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonShowTBLabels = new System.Windows.Forms.Button();
+            this.groupBoxShowTBLabels = new System.Windows.Forms.GroupBox();
+            this.ControlPanel = new System.Windows.Forms.Panel();
+            this.CreateTaskButton = new System.Windows.Forms.Button();
+            this.TaskListPanel = new System.Windows.Forms.Panel();
+            this.panelTaskStart.SuspendLayout();
+            this.groupBoxShowTBLabels.SuspendLayout();
+            this.ControlPanel.SuspendLayout();
+            this.TaskListPanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panelTaskStart
+            // 
+            this.panelTaskStart.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelTaskStart.Controls.Add(this.TestCreatorPanel);
+            this.panelTaskStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTaskStart.Location = new System.Drawing.Point(165, 0);
+            this.panelTaskStart.Margin = new System.Windows.Forms.Padding(10);
+            this.panelTaskStart.Name = "panelTaskStart";
+            this.panelTaskStart.Padding = new System.Windows.Forms.Padding(5);
+            this.panelTaskStart.Size = new System.Drawing.Size(1014, 642);
+            this.panelTaskStart.TabIndex = 10;
+            // 
+            // TestCreatorPanel
+            // 
+            this.TestCreatorPanel.AutoScroll = true;
+            this.TestCreatorPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.TestCreatorPanel.Location = new System.Drawing.Point(5, 5);
+            this.TestCreatorPanel.Name = "TestCreatorPanel";
+            this.TestCreatorPanel.Size = new System.Drawing.Size(1001, 634);
+            this.TestCreatorPanel.TabIndex = 1;
+            // 
+            // panelMiddle
+            // 
+            this.panelMiddle.BackColor = System.Drawing.Color.White;
+            this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMiddle.Location = new System.Drawing.Point(165, 0);
+            this.panelMiddle.Name = "panelMiddle";
+            this.panelMiddle.Size = new System.Drawing.Size(1014, 642);
+            this.panelMiddle.TabIndex = 11;
+            // 
+            // InsertTextButton
+            // 
+            this.InsertTextButton.FlatAppearance.BorderSize = 2;
+            this.InsertTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InsertTextButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.InsertTextButton.ForeColor = System.Drawing.Color.Black;
+            this.InsertTextButton.Location = new System.Drawing.Point(3, 12);
+            this.InsertTextButton.Name = "InsertTextButton";
+            this.InsertTextButton.Size = new System.Drawing.Size(139, 75);
+            this.InsertTextButton.TabIndex = 2;
+            this.InsertTextButton.Text = "Вставить текст задания";
+            this.InsertTextButton.UseVisualStyleBackColor = true;
+            // 
+            // InsertImageButton
+            // 
+            this.InsertImageButton.FlatAppearance.BorderSize = 2;
+            this.InsertImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InsertImageButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.InsertImageButton.ForeColor = System.Drawing.Color.Black;
+            this.InsertImageButton.Location = new System.Drawing.Point(3, 93);
+            this.InsertImageButton.Name = "InsertImageButton";
+            this.InsertImageButton.Size = new System.Drawing.Size(139, 75);
+            this.InsertImageButton.TabIndex = 1;
+            this.InsertImageButton.Text = "Добавить изображение";
+            this.InsertImageButton.UseVisualStyleBackColor = true;
+            // 
+            // InsertAnswerButton
+            // 
+            this.InsertAnswerButton.FlatAppearance.BorderSize = 2;
+            this.InsertAnswerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InsertAnswerButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.InsertAnswerButton.ForeColor = System.Drawing.Color.Black;
+            this.InsertAnswerButton.Location = new System.Drawing.Point(3, 174);
+            this.InsertAnswerButton.Name = "InsertAnswerButton";
+            this.InsertAnswerButton.Size = new System.Drawing.Size(139, 75);
+            this.InsertAnswerButton.TabIndex = 0;
+            this.InsertAnswerButton.Text = "Вставить поле для ответа";
+            this.InsertAnswerButton.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Номера ответов";
+            // 
+            // buttonShowTBLabels
+            // 
+            this.buttonShowTBLabels.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonShowTBLabels.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShowTBLabels.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.buttonShowTBLabels.Location = new System.Drawing.Point(7, 40);
+            this.buttonShowTBLabels.Name = "buttonShowTBLabels";
+            this.buttonShowTBLabels.Size = new System.Drawing.Size(120, 64);
+            this.buttonShowTBLabels.TabIndex = 0;
+            this.buttonShowTBLabels.Text = "Сделать невидимыми";
+            this.buttonShowTBLabels.UseVisualStyleBackColor = false;
+            // 
+            // groupBoxShowTBLabels
+            // 
+            this.groupBoxShowTBLabels.Controls.Add(this.label1);
+            this.groupBoxShowTBLabels.Controls.Add(this.buttonShowTBLabels);
+            this.groupBoxShowTBLabels.Location = new System.Drawing.Point(6, 255);
+            this.groupBoxShowTBLabels.Name = "groupBoxShowTBLabels";
+            this.groupBoxShowTBLabels.Size = new System.Drawing.Size(136, 112);
+            this.groupBoxShowTBLabels.TabIndex = 3;
+            this.groupBoxShowTBLabels.TabStop = false;
+            // 
+            // ControlPanel
+            // 
+            this.ControlPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ControlPanel.Controls.Add(this.groupBoxShowTBLabels);
+            this.ControlPanel.Controls.Add(this.InsertTextButton);
+            this.ControlPanel.Controls.Add(this.InsertImageButton);
+            this.ControlPanel.Controls.Add(this.InsertAnswerButton);
+            this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ControlPanel.Location = new System.Drawing.Point(1179, 0);
+            this.ControlPanel.Name = "ControlPanel";
+            this.ControlPanel.Size = new System.Drawing.Size(145, 642);
+            this.ControlPanel.TabIndex = 8;
+            // 
+            // CreateTaskButton
+            // 
+            this.CreateTaskButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.CreateTaskButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.CreateTaskButton.FlatAppearance.BorderSize = 2;
+            this.CreateTaskButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateTaskButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.CreateTaskButton.ForeColor = System.Drawing.Color.Black;
+            this.CreateTaskButton.Location = new System.Drawing.Point(24, 12);
+            this.CreateTaskButton.Name = "CreateTaskButton";
+            this.CreateTaskButton.Size = new System.Drawing.Size(116, 75);
+            this.CreateTaskButton.TabIndex = 1;
+            this.CreateTaskButton.Text = "Новое задание";
+            this.CreateTaskButton.UseVisualStyleBackColor = false;
+            // 
+            // TaskListPanel
+            // 
+            this.TaskListPanel.AutoScroll = true;
+            this.TaskListPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TaskListPanel.Controls.Add(this.CreateTaskButton);
+            this.TaskListPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TaskListPanel.Location = new System.Drawing.Point(0, 0);
+            this.TaskListPanel.Name = "TaskListPanel";
+            this.TaskListPanel.Size = new System.Drawing.Size(165, 642);
+            this.TaskListPanel.TabIndex = 9;
+            // 
+            // TestForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1324, 642);
+            this.Controls.Add(this.panelTaskStart);
+            this.Controls.Add(this.panelMiddle);
+            this.Controls.Add(this.ControlPanel);
+            this.Controls.Add(this.TaskListPanel);
+            this.Name = "TestForm";
+            this.Text = "Тест";
+            this.panelTaskStart.ResumeLayout(false);
+            this.groupBoxShowTBLabels.ResumeLayout(false);
+            this.groupBoxShowTBLabels.PerformLayout();
+            this.ControlPanel.ResumeLayout(false);
+            this.TaskListPanel.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.SaveFileDialog saveTest;
+        private System.Windows.Forms.Panel panelTaskStart;
+        private System.Windows.Forms.Panel TestCreatorPanel;
+        private System.Windows.Forms.Panel panelMiddle;
+        private System.Windows.Forms.Button InsertTextButton;
+        private System.Windows.Forms.Button InsertImageButton;
+        private System.Windows.Forms.Button InsertAnswerButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonShowTBLabels;
+        private System.Windows.Forms.GroupBox groupBoxShowTBLabels;
+        private System.Windows.Forms.Panel ControlPanel;
+        private System.Windows.Forms.Button CreateTaskButton;
+        private System.Windows.Forms.Panel TaskListPanel;
+    }
+}

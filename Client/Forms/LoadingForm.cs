@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Client.Services.Implementations;
 using Client.TestUpdater;
 
 namespace Client.Forms
@@ -10,23 +11,20 @@ namespace Client.Forms
         public LoadingForm()
         {
             InitializeComponent();
-        }
-
-        private void StartLoadingButton_Click(object sender, EventArgs e)
-        {
-            StartLoadingButton.Enabled = false;
             StartThread();
         }
 
         private void StartThread()
         {
-            LoadingStatusLabel.Text = @"Обновление начато";
+            LoadingStatusLabel.Text = @"Ожидание подключения";
 
-            var testUpdater = new ClientTestUpdater(ClientConfiguration.ServerIp, ClientConfiguration.ServerPort);
+            var configuration = ClientConfiguration.GetInstance();
+
+            var testUpdater = new ClientTestUpdater(configuration.ServerIp, configuration.ServerPort);
             LoadingTestBackgroundWorker.RunWorkerAsync(testUpdater);
         }
 
-        private void LoadingTestBackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void LoadingTestBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             var worker = (BackgroundWorker) sender;
             var testUpdater = (ClientTestUpdater) e.Argument;
@@ -35,8 +33,10 @@ namespace Client.Forms
 
         private void LoadingTestBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            LoadingStatusLabel.Text = @"Обновление завершено";
-            MessageBox.Show(e.Error != null ? $@"Ошибка: {e.Error.Message}" : @"Обновление тестов завершена");
+            Hide();
+            var startForm = new StartForm();
+            startForm.Closed += (s, args) => Close();
+            startForm.Show();
         }
 
         private void LoadingTestBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -47,27 +47,27 @@ namespace Client.Forms
             {
                 case ClientTestUpdaterStates.GetInformationObjectsFromServer:
                     LoadingStatusLabel.Text = @"Загрзука информации о тестах с сервера";
-                    LoadingStatusProgressBar.Value += 10;
+                    LoadingStatusProgressBar.Value = 10;
                     break;
                 case ClientTestUpdaterStates.GetTests:
                     LoadingStatusLabel.Text = @"Загрзука тестов с сервера";
-                    LoadingStatusProgressBar.Value += 20;
+                    LoadingStatusProgressBar.Value = 30;
                     break;
                 case ClientTestUpdaterStates.GetImageInfromationObjects:
                     LoadingStatusLabel.Text = @"Загрзука информации о изображениях с сервера";
-                    LoadingStatusProgressBar.Value += 10;
+                    LoadingStatusProgressBar.Value = 40;
                     break;
                 case ClientTestUpdaterStates.GetImages:
                     LoadingStatusLabel.Text = @"Загрзука изображений с сервера";
-                    LoadingStatusProgressBar.Value += 20;
+                    LoadingStatusProgressBar.Value = 60;
                     break;
                 case ClientTestUpdaterStates.SavingTests:
                     LoadingStatusLabel.Text = @"Сохранение тестов";
-                    LoadingStatusProgressBar.Value += 20;
+                    LoadingStatusProgressBar.Value = 80;
                     break;
                 case ClientTestUpdaterStates.SavingImages:
                     LoadingStatusLabel.Text = @"Сохранение изображений";
-                    LoadingStatusProgressBar.Value += 20;
+                    LoadingStatusProgressBar.Value = 100;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

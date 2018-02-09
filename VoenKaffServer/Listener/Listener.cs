@@ -34,7 +34,7 @@ namespace VoenKaffServer.Listener
             try
             {
                 var ip = _parameters.Get().IpAdress;
-                var port = _parameters.Get().Port;
+                var port = 8080;
                 
                 listener = new TcpListener(IPAddress.Parse(ip), port);
                 
