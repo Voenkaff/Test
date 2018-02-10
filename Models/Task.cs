@@ -7,5 +7,7 @@ namespace Models
         public string Name { get; set; }
         public List<TaskElement> TaskElements { get; set; } = new List<TaskElement>();
 
+        public PictureBox
+
     }
 }

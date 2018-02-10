@@ -256,6 +256,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 468);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(831, 507);
+            this.MinimumSize = new System.Drawing.Size(831, 507);
             this.Name = "PlatoonsForm";
             this.Text = "Взвода";
             this.panel1.ResumeLayout(false);

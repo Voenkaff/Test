@@ -1,20 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Models;
 
 namespace Editor.Forms
 {
     public partial class TestForm : Form
     {
-        public TestForm()
+        private readonly Test _test;
+
+        public TestForm(Test test)
         {
+            _test = test;
             InitializeComponent();
+        }
+
+        private void CreateTaskButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void InsertTextButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void InsertImageButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void InsertAnswerButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void HideLabelButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void SaveAndCloseButton_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

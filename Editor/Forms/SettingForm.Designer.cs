@@ -85,6 +85,8 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.SavePathLabel);
             this.Controls.Add(this.SavePathTextBox);
+            this.MaximumSize = new System.Drawing.Size(657, 128);
+            this.MinimumSize = new System.Drawing.Size(657, 128);
             this.Name = "SettingForm";
             this.Text = "Настройки";
             this.ResumeLayout(false);

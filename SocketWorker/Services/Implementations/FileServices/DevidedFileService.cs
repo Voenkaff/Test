@@ -30,6 +30,7 @@ namespace Services.Services.Implementations.FileServices
             foreach (var fileUpdateAction in fileUpdateActions.Where(file => file.Type == FileUpdateActionType.Remove))
             {
                 var filePath = Path.Combine(_directory, fileUpdateAction.FileName);
+
                 File.Delete(filePath);
             }
 

@@ -158,6 +158,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 519);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(522, 558);
+            this.MinimumSize = new System.Drawing.Size(522, 558);
             this.Name = "SubjectForm";
             this.Text = "Предметы";
             this.panel1.ResumeLayout(false);

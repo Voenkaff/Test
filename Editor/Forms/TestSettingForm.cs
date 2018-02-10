@@ -67,7 +67,7 @@ namespace Editor.Forms
                 {
                     fileUpdateActions.Add(new FileUpdateAction<Test>
                     {
-                        FileName = _test.Name,
+                        FileName = _test.Name + ".test",
                         Type = FileUpdateActionType.Remove
                     });
                 }

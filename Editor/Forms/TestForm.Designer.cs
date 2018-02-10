@@ -37,11 +37,12 @@
             this.InsertImageButton = new System.Windows.Forms.Button();
             this.InsertAnswerButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonShowTBLabels = new System.Windows.Forms.Button();
+            this.HideLabelButton = new System.Windows.Forms.Button();
             this.groupBoxShowTBLabels = new System.Windows.Forms.GroupBox();
             this.ControlPanel = new System.Windows.Forms.Panel();
             this.CreateTaskButton = new System.Windows.Forms.Button();
             this.TaskListPanel = new System.Windows.Forms.Panel();
+            this.SaveAndCloseButton = new System.Windows.Forms.Button();
             this.panelTaskStart.SuspendLayout();
             this.groupBoxShowTBLabels.SuspendLayout();
             this.ControlPanel.SuspendLayout();
@@ -90,6 +91,7 @@
             this.InsertTextButton.TabIndex = 2;
             this.InsertTextButton.Text = "Вставить текст задания";
             this.InsertTextButton.UseVisualStyleBackColor = true;
+            this.InsertTextButton.Click += new System.EventHandler(this.InsertTextButton_Click);
             // 
             // InsertImageButton
             // 
@@ -103,6 +105,7 @@
             this.InsertImageButton.TabIndex = 1;
             this.InsertImageButton.Text = "Добавить изображение";
             this.InsertImageButton.UseVisualStyleBackColor = true;
+            this.InsertImageButton.Click += new System.EventHandler(this.InsertImageButton_Click);
             // 
             // InsertAnswerButton
             // 
@@ -116,6 +119,7 @@
             this.InsertAnswerButton.TabIndex = 0;
             this.InsertAnswerButton.Text = "Вставить поле для ответа";
             this.InsertAnswerButton.UseVisualStyleBackColor = true;
+            this.InsertAnswerButton.Click += new System.EventHandler(this.InsertAnswerButton_Click);
             // 
             // label1
             // 
@@ -127,22 +131,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Номера ответов";
             // 
-            // buttonShowTBLabels
+            // HideLabelButton
             // 
-            this.buttonShowTBLabels.BackColor = System.Drawing.Color.LightBlue;
-            this.buttonShowTBLabels.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShowTBLabels.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.buttonShowTBLabels.Location = new System.Drawing.Point(7, 40);
-            this.buttonShowTBLabels.Name = "buttonShowTBLabels";
-            this.buttonShowTBLabels.Size = new System.Drawing.Size(120, 64);
-            this.buttonShowTBLabels.TabIndex = 0;
-            this.buttonShowTBLabels.Text = "Сделать невидимыми";
-            this.buttonShowTBLabels.UseVisualStyleBackColor = false;
+            this.HideLabelButton.BackColor = System.Drawing.Color.LightBlue;
+            this.HideLabelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HideLabelButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.HideLabelButton.Location = new System.Drawing.Point(7, 40);
+            this.HideLabelButton.Name = "HideLabelButton";
+            this.HideLabelButton.Size = new System.Drawing.Size(120, 64);
+            this.HideLabelButton.TabIndex = 0;
+            this.HideLabelButton.Text = "Сделать невидимыми";
+            this.HideLabelButton.UseVisualStyleBackColor = false;
+            this.HideLabelButton.Click += new System.EventHandler(this.HideLabelButton_Click);
             // 
             // groupBoxShowTBLabels
             // 
             this.groupBoxShowTBLabels.Controls.Add(this.label1);
-            this.groupBoxShowTBLabels.Controls.Add(this.buttonShowTBLabels);
+            this.groupBoxShowTBLabels.Controls.Add(this.HideLabelButton);
             this.groupBoxShowTBLabels.Location = new System.Drawing.Point(6, 255);
             this.groupBoxShowTBLabels.Name = "groupBoxShowTBLabels";
             this.groupBoxShowTBLabels.Size = new System.Drawing.Size(136, 112);
@@ -152,6 +157,7 @@
             // ControlPanel
             // 
             this.ControlPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ControlPanel.Controls.Add(this.SaveAndCloseButton);
             this.ControlPanel.Controls.Add(this.groupBoxShowTBLabels);
             this.ControlPanel.Controls.Add(this.InsertTextButton);
             this.ControlPanel.Controls.Add(this.InsertImageButton);
@@ -176,6 +182,7 @@
             this.CreateTaskButton.TabIndex = 1;
             this.CreateTaskButton.Text = "Новое задание";
             this.CreateTaskButton.UseVisualStyleBackColor = false;
+            this.CreateTaskButton.Click += new System.EventHandler(this.CreateTaskButton_Click);
             // 
             // TaskListPanel
             // 
@@ -188,6 +195,17 @@
             this.TaskListPanel.Size = new System.Drawing.Size(165, 642);
             this.TaskListPanel.TabIndex = 9;
             // 
+            // SaveAndCloseButton
+            // 
+            this.SaveAndCloseButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.SaveAndCloseButton.Location = new System.Drawing.Point(14, 561);
+            this.SaveAndCloseButton.Name = "SaveAndCloseButton";
+            this.SaveAndCloseButton.Size = new System.Drawing.Size(119, 57);
+            this.SaveAndCloseButton.TabIndex = 4;
+            this.SaveAndCloseButton.Text = "Сохранить и закрыть";
+            this.SaveAndCloseButton.UseVisualStyleBackColor = true;
+            this.SaveAndCloseButton.Click += new System.EventHandler(this.SaveAndCloseButton_Click);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +215,8 @@
             this.Controls.Add(this.panelMiddle);
             this.Controls.Add(this.ControlPanel);
             this.Controls.Add(this.TaskListPanel);
+            this.MaximumSize = new System.Drawing.Size(1340, 681);
+            this.MinimumSize = new System.Drawing.Size(1340, 681);
             this.Name = "TestForm";
             this.Text = "Тест";
             this.panelTaskStart.ResumeLayout(false);
@@ -219,10 +239,11 @@
         private System.Windows.Forms.Button InsertImageButton;
         private System.Windows.Forms.Button InsertAnswerButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonShowTBLabels;
+        private System.Windows.Forms.Button HideLabelButton;
         private System.Windows.Forms.GroupBox groupBoxShowTBLabels;
         private System.Windows.Forms.Panel ControlPanel;
         private System.Windows.Forms.Button CreateTaskButton;
         private System.Windows.Forms.Panel TaskListPanel;
+        private System.Windows.Forms.Button SaveAndCloseButton;
     }
 }

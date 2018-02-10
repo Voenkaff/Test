@@ -304,6 +304,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 534);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(622, 573);
+            this.MinimumSize = new System.Drawing.Size(622, 573);
             this.Name = "TestSettingForm";
             this.Text = "Добавление теста";
             this.groupBox3.ResumeLayout(false);
