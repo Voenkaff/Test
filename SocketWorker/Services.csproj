@@ -48,8 +48,10 @@
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Configuration\ConfigContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Implementations\FileServices\DevidedFileService.cs" />
     <Compile Include="Services\Implementations\FileServices\FileService.cs" />
     <Compile Include="Services\Implementations\FileServices\PlatoonFileService.cs" />
+    <Compile Include="Services\Implementations\FileServices\TestDevidedFileService.cs" />
     <Compile Include="Services\IStreamWrapperService.cs" />
     <Compile Include="Services\ISubjectFileService.cs" />
     <Compile Include="Services\ITestDirectoryService.cs" />
@@ -58,13 +60,13 @@
     <Compile Include="Services\Implementations\FileServices\SubjectFileService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{5215c594-5a38-481f-b098-db93a4e7f642}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

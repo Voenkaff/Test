@@ -9,10 +9,10 @@ namespace Services.Configuration
 
         public static T GetConfig<T>() where T : Config, new()
         {
-            if (_config == null)
-            {
-                _config = LoadConfiguration(new T());
-            }
+            if (_config != null) return (T) _config;
+
+            _config = LoadConfiguration(new T());
+            SaveConfiguration();
             return (T) _config;
         }
 

@@ -16,11 +16,11 @@ namespace Services.Services.Implementations
             _testDirectoryPath = testDirectoryPath;
         }
 
-        public List<TestContainer> GetTests()
+        public List<Test> GetTests()
         {
             var testFiles = GetAllTestFiles();
             return testFiles.Select(fileInfo => File.ReadAllText(fileInfo.FullName))
-                .Select(JsonConvert.DeserializeObject<TestContainer>).ToList();
+                .Select(JsonConvert.DeserializeObject<Test>).ToList();
         }
 
         public List<TestTransferObject> GetTests(List<string> testNames)
@@ -30,7 +30,7 @@ namespace Services.Services.Implementations
             return targetTest.Select(fileInfo => new TestTransferObject
             {
                 Name = fileInfo.Name,
-                TestContainer = JsonConvert.DeserializeObject<TestContainer>(File.ReadAllText(fileInfo.FullName))
+                Test = JsonConvert.DeserializeObject<Test>(File.ReadAllText(fileInfo.FullName))
             }).ToList();
         }
 

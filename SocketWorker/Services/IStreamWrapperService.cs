@@ -15,6 +15,6 @@ namespace Services.Services
         Command ReciveCommand();
         byte[] ReciveBytes();
         List<TestTransferObject> ReciveTests();
-        TestContainer ReciveTest(string testName);
+        Test ReciveTest(string testName);
     }
 }

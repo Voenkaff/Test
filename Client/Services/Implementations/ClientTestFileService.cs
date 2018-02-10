@@ -31,7 +31,7 @@ namespace Client.Services.Implementations
         {
             using (var stream = new StreamWriter($"{_testDirectory}//{testTransferObject.Name}"))
             {
-                var json = JsonConvert.SerializeObject(testTransferObject.TestContainer);
+                var json = JsonConvert.SerializeObject(testTransferObject.Test);
                 stream.Write(json);
             }
         }

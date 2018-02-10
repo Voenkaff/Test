@@ -2,6 +2,7 @@
 using Client.Services;
 using Client.Services.Implementations;
 using Services.Configuration;
+using Services.Services.Implementations.FileServices;
 
 namespace Client.TestUpdater
 {
@@ -9,10 +10,15 @@ namespace Client.TestUpdater
     {
         private readonly IServerConnectionService _serverConnectionService;
         private readonly IClientTestFileService _clientTestFileService;
+        private readonly SubjectFileService _subjectFileService;
+        private readonly PlatoonFileService _platoonFileService;
 
         public ClientTestUpdater(string serverId, int serverPort)
         {
             _serverConnectionService = new ServerConnectionService(serverId, serverPort);
+
+            _subjectFileService = new SubjectFileService(ConfigContainer.GetConfig<ClientConfig>().SaveFolder);
+            _platoonFileService = new PlatoonFileService(ConfigContainer.GetConfig<ClientConfig>().SaveFolder);
 
             var config = ConfigContainer.GetConfig<ClientConfig>();
 
@@ -26,6 +32,12 @@ namespace Client.TestUpdater
             {
                 return;
             }
+
+            var platoons = _serverConnectionService.GetPlatoons();
+            _platoonFileService.Update(platoons);
+
+            var subjects = _serverConnectionService.GetSubjects();
+            _subjectFileService.Update(subjects);
 
             var state = new ClientTestUpdaterState {State = ClientTestUpdaterStates.GetInformationObjectsFromServer};
             worker.ReportProgress(0, state);

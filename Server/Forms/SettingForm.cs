@@ -24,6 +24,10 @@ namespace Server.Forms
             if (IsInputDataValid())
             {
                 SaveConfig();
+
+                Close();
+                
+                MessageBox.Show(@"Сохранение настроек прошло успешно", @"Настройки сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -42,6 +46,8 @@ namespace Server.Forms
 
             config.ServerIp = IpTextBox.Text;
             config.ServerPort = int.Parse(PortLabelTextBox.Text);
+
+            ConfigContainer.SaveConfiguration();
         }
 
         //        private void close_Click(object sender, EventArgs e)

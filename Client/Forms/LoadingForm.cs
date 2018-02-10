@@ -68,6 +68,7 @@ namespace Client.Forms
                 case ClientTestUpdaterStates.SavingImages:
                     LoadingStatusLabel.Text = @"Сохранение изображений";
                     LoadingStatusProgressBar.Value = 100;
+                    MessageBox.Show("Обновление тестов");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -61,6 +61,16 @@ namespace Client.Services.Implementations
             return Get<ImageTransferObject>(commands);
         }
 
+        public List<Platoon> GetPlatoons()
+        {
+            return Get<List<Platoon>>(Command.GetSubjects());
+        }
+
+        public List<Subject> GetSubjects()
+        {
+            return Get<List<Subject>>(Command.GetSubjects());
+        }
+
         public T Get<T>(Command command)
         {
             return Get<T>(new List<Command> {command})[0];

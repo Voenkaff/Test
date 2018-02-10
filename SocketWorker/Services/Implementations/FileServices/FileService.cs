@@ -17,13 +17,9 @@ namespace Services.Services.Implementations.FileServices
 
         public void Update(List<T> objects)
         {
-            if (!File.Exists(_filePath))
+            if (!Directory.Exists(_directory))
             {
-                if (!Directory.Exists(_directory))
-                {
-                    Directory.CreateDirectory(_directory);
-                }
-                File.Create(_filePath);
+                Directory.CreateDirectory(_directory);
             }
 
             using (var stream = new StreamWriter(_filePath))

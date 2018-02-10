@@ -6,7 +6,7 @@ namespace Services.Services
 {
     public interface ITestDirectoryService
     {
-        List<TestContainer> GetTests();
+        List<Test> GetTests();
         List<InformationObject> GetTestInformationObjects();
         ImageTransferObject GetImage(string name);
     }

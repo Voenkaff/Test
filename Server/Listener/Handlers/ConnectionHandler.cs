@@ -48,6 +48,12 @@ namespace Server.Listener.Handlers
                     case CommandType.GetImagesInformation:
                         new GetImagesInformationHandler(streamWrapper).Handle(command);
                         break;
+                    case CommandType.GetPlatoons:
+                        new GetPlatoonsHandler(streamWrapper).Handle(command);
+                        break;
+                    case CommandType.GetSubjects:
+                        new GetSubjectsHandler(streamWrapper).Handle(command);
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

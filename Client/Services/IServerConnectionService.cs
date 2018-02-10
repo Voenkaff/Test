@@ -11,5 +11,7 @@ namespace Client.Services
         List<TestTransferObject> GetTests(List<InformationObject> testInformationObjects);
         List<InformationObject> GetImageInfromationObjects();
         List<ImageTransferObject> GetImages(List<InformationObject> informationObjects);
+        List<Platoon> GetPlatoons();
+        List<Subject> GetSubjects();
     }
 }

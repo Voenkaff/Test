@@ -16,14 +16,6 @@ namespace Models.Socket
             };
         }
 
-        public static Command Close()
-        {
-            return new Command
-            {
-                CommandType = CommandType.Close
-            };
-        }
-
         public static Command Tests(List<string> testNames)
         {
             return new Command
@@ -49,6 +41,22 @@ namespace Models.Socket
                 CommandType = CommandType.GetImagesInformation
             };
         }
+
+        public static Command GetPlatoons()
+        {
+            return new Command
+            {
+                CommandType = CommandType.GetPlatoons
+            };
+        }
+
+        public static Command GetSubjects()
+        {
+            return new Command
+            {
+                CommandType = CommandType.GetSubjects
+            };
+        }
     }
 
     public enum CommandType
@@ -56,6 +64,8 @@ namespace Models.Socket
         GetTestInformation,
         GetTests,
         GetImage,
-        GetImagesInformation
+        GetImagesInformation,
+        GetPlatoons,
+        GetSubjects
     }
 }

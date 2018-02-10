@@ -79,10 +79,10 @@ namespace Services.Services.Implementations
             return tests;
         }
 
-        public TestContainer ReciveTest(string testName)
+        public Test ReciveTest(string testName)
         {
             var json = ReciveString();
-            return JsonConvert.DeserializeObject<TestContainer>(json);
+            return JsonConvert.DeserializeObject<Test>(json);
         }
 
         public List<byte[]> ReciveImages()
