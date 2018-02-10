@@ -4,14 +4,14 @@ using System.Windows.Forms;
 
 namespace Voenkaff.Entity
 {
-    public class PictureBoxScalable:Entity<PictureBox>
+    class PictureBoxScalable:Entity<PictureBox>
     {
         private Rectangle _rectProposedSize = Rectangle.Empty;
         private readonly Test _form;
         private Panel _parent;
         
 
-        public void SetParent(Panel parent)
+        public void setParent(Panel parent)
         {
             _parent = parent;
         }

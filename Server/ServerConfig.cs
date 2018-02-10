@@ -1,4 +1,5 @@
-﻿using Services.Configuration;
+﻿using System.IO;
+using Services.Configuration;
 
 namespace Server
 {
@@ -8,5 +9,6 @@ namespace Server
         public int ServerPort { get; set; } = 8080;
         public string TestFolder { get; set; } = "tests";
         public string ResultFolder { get; set; } = "results";
+        public string SaveFolder { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "save");
     }
 }

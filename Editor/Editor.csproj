@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EditorConfig.cs" />
+    <Compile Include="Entity\ControlMover.cs" />
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Entity\PictureBoxScalable.cs" />
+    <Compile Include="Entity\TextContainer.cs" />
+    <Compile Include="Entity\Title.cs" />
     <Compile Include="Forms\PlatoonForm.cs">
       <SubType>Form</SubType>
     </Compile>

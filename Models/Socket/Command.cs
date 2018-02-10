@@ -54,7 +54,6 @@ namespace Models.Socket
     public enum CommandType
     {
         GetTestInformation,
-        Close,
         GetTests,
         GetImage,
         GetImagesInformation

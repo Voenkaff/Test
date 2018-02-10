@@ -616,7 +616,7 @@ namespace Voenkaff
 
                 foreach (PictureBoxScalable pb in _PBInTask[task])
                 {
-                    pb.setParent(panelQestionFoo);
+                    pb.SetParent(panelQestionFoo);
                     panelQestionFoo.Controls.Add(pb.Instance);
                     ControlMover.Add(pb.Instance);
                     pb.Instance.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -627,7 +627,7 @@ namespace Voenkaff
                 foreach (TextContainer tb in _TBInTask[task])
                 {
                     tb.Instance.Name = "System.Windows.Forms.TextBox, Text: " + j;
-                    tb.setParent(panelQestionFoo);
+                    tb.SetParent(panelQestionFoo);
                     tb.AddAnswerTitle(tb.Instance.TabIndex);
                     panelQestionFoo.Controls.Add(tb.Instance);
                     tb.Instance.BringToFront();
@@ -642,7 +642,7 @@ namespace Voenkaff
 
                 foreach (Title rtb in _RTBInTask[task])
                 {
-                    rtb.setParent(panelQestionFoo);
+                    rtb.SetParent(panelQestionFoo);
                     panelQestionFoo.Controls.Add(rtb.Instance);
                     ControlMover.Add(rtb.Instance);
                     rtb.Instance.BringToFront();

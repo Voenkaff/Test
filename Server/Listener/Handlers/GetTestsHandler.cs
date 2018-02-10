@@ -15,6 +15,8 @@ namespace Server.Listener.Handlers
             _testDirectoryService = new TestDirectoryService(ConfigContainer.GetConfig<ServerConfig>().TestFolder);
         }
 
+
+
         public void Handle(Command command)
         {
             var tests = _testDirectoryService.GetTests(command.Args);

@@ -60,9 +60,10 @@ namespace Voenkaff.Entity
 
             if (ctrl != null && ChangeCursor)
             {
-                if (((e.X >= ctrl.Width - ResizingMargin) && (e.Y >= ctrl.Height - ResizingMargin) && AllowResize))
+                if ( ((e.X >= ctrl.Width - ResizingMargin) && (e.Y >= ctrl.Height - ResizingMargin) && AllowResize))
                     ctrl.Cursor = Cursors.SizeNWSE;
-                else if (AllowMove)
+                else
+                if (AllowMove)
                     ctrl.Cursor = Cursors.SizeAll;
                 else
                     ctrl.Cursor = Cursors.Default;
@@ -83,8 +84,7 @@ namespace Voenkaff.Entity
                     {
                         if (AllowResize)
                         {
-                            ctrl.Size = new Size(Math.Max(MinSize, _startSize.Width + dx),
-                                Math.Max(MinSize, _startSize.Height + dy));
+                            ctrl.Size = new Size(Math.Max(MinSize, _startSize.Width + dx), Math.Max(MinSize, _startSize.Height + dy));
                             ctrl.Cursor = Cursors.SizeNWSE;
                             if (BringToFront && !(sender is PictureBox)) ctrl.BringToFront();
                         }
@@ -109,6 +109,7 @@ namespace Voenkaff.Entity
         {
             if (e.Button != MouseButtons.Left)
                 return;
+
 
 
             if (sender is Control)
