@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
+using VoenKaffServer;
 
-namespace VoenKaffServer
+namespace Server
 {
     public class ResultsSaver
     {

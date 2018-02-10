@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VoenKaffServer.Properties {
+namespace Server.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

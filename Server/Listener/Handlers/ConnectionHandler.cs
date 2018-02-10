@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Net.Sockets;
 using Models.Socket;
-using Services;
 using Services.Services.Implementations;
 
-namespace VoenKaffServer.Listener.Handlers
+namespace Server.Listener.Handlers
 {
     public class ConnectionHandler
     {

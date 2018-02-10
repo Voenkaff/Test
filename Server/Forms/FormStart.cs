@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using VoenKaffServer.Properties;
-using VoenKaffServer.Wrappers;
+using Server.Properties;
+using Server.Wrappers;
+using VoenKaffServer;
 
-namespace VoenKaffServer
+namespace Server.Forms
 {
     public partial class FormStart : Form
     {
         private delegate void StringArgReturningVoidDelegate(string text);
+
         private FormSettings _settings;
 
         private readonly FormLogin _formLogin;
@@ -49,6 +45,7 @@ namespace VoenKaffServer
             {
                 _settings = new FormSettings();
             }
+
             _settings.Visible = true;
         }
 
@@ -65,12 +62,12 @@ namespace VoenKaffServer
                 if (resultObj.ResultType == "Экзамен")
                 {
                     GridResultTest.Rows.Add(
-                    resultObj.Course,
-                    resultObj.TestName,
-                    resultObj.Platoon,
-                    resultObj.StudentName,
-                    resultObj.Mark,
-                    resultObj.Timestamp
+                        resultObj.Course,
+                        resultObj.TestName,
+                        resultObj.Platoon,
+                        resultObj.StudentName,
+                        resultObj.Mark,
+                        resultObj.Timestamp
                     );
                     ResultsSaver.TestsSaved = false;
                 }
@@ -78,12 +75,12 @@ namespace VoenKaffServer
                 if (resultObj.ResultType == "Тренировка")
                 {
                     GridResultStudy.Rows.Add(
-                    resultObj.Course,
-                    resultObj.TestName,
-                    resultObj.Platoon,
-                    resultObj.StudentName,
-                    resultObj.Mark,
-                    resultObj.Timestamp
+                        resultObj.Course,
+                        resultObj.TestName,
+                        resultObj.Platoon,
+                        resultObj.StudentName,
+                        resultObj.Mark,
+                        resultObj.Timestamp
                     );
                     ResultsSaver.StudySaved = false;
                 }
@@ -132,12 +129,11 @@ namespace VoenKaffServer
 
         private void GridResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void ResultInitializer()
         {
-            if (File.Exists(Resources.ResultsData) && File.ReadAllText(Resources.ResultsData)!="")
+            if (File.Exists(Resources.ResultsData) && File.ReadAllText(Resources.ResultsData) != "")
             {
                 var json = File.ReadAllText(Resources.ResultsData);
                 var results = JsonConvert.DeserializeObject<List<Result>>(json);
@@ -153,7 +149,6 @@ namespace VoenKaffServer
                             result.Mark,
                             result.Timestamp
                         );
-
                     }
 
                     if (result.ResultType == "Тренировка")
@@ -169,6 +164,7 @@ namespace VoenKaffServer
                     }
                 }
             }
+
             UpdateResults();
         }
 
@@ -212,6 +208,7 @@ namespace VoenKaffServer
                         ResultsSaver.TestsSaved = true;
                     }
                 }
+
                 if (ResultsSaver.StudySaved == false)
                 {
                     //var messageBox = MessageBox.Show("Есть несохраненные результаты ОБУЧЕНИЯ! Сохранить их перед закрытием?", "Сохранение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

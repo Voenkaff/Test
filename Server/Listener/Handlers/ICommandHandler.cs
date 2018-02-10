@@ -1,6 +1,6 @@
 ﻿using Models.Socket;
 
-namespace VoenKaffServer.Listener.Handlers
+namespace Server.Listener.Handlers
 {
     public interface ICommandHandler
     {

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Server.Forms;
 
-namespace VoenKaffServer
+namespace Server
 {
     public static class Program
     {

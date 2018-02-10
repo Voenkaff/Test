@@ -1,15 +1,14 @@
 ﻿using Models.Socket;
-using Services;
 using Services.Services.Implementations;
 
-namespace VoenKaffServer.Listener.Handlers
+namespace Server.Listener.Handlers
 {
-    public class GetImagesInformationHandler : ICommandHandler
+    public class GetTestsHandler : ICommandHandler
     {
         private readonly StreamWrapperService _streamWrapperService;
         private readonly TestDirectoryService _testDirectoryService;
 
-        public GetImagesInformationHandler(StreamWrapperService streamWrapperService)
+        public GetTestsHandler(StreamWrapperService streamWrapperService)
         {
             _streamWrapperService = streamWrapperService;
             _testDirectoryService = new TestDirectoryService(Configuration.GetTestFolderPath());
@@ -17,8 +16,8 @@ namespace VoenKaffServer.Listener.Handlers
 
         public void Handle(Command command)
         {
-            var informationObjects = _testDirectoryService.GetImageInformationObjects();
-            _streamWrapperService.SendObject(informationObjects);
+            var tests = _testDirectoryService.GetTests(command.Args);
+            _streamWrapperService.SendObject(tests);
         }
     }
 }

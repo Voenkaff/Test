@@ -2,7 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 
-namespace VoenKaffServer
+namespace Server
 {
     public class DynamicParams
     {

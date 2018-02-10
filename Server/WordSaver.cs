@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 
-namespace VoenKaffServer
+namespace Server
 {
-    class WordSaver
+    public class WordSaver
     {
-        
-
         public void Export_Data_To_Word(DataGridView DGV, string filename)
         {
             try
@@ -47,11 +39,11 @@ namespace VoenKaffServer
                     {
                         for (int c = 0; c <= ColumnCount - 1; c++)
                         {
-
-                            oTemp = oTemp + DataArray[r, c]?.ToString().Replace("\t", "").Replace("\n", "").Replace("\r", "") + "\t";
-
+                            oTemp = oTemp + DataArray[r, c]?.ToString().Replace("\t", "").Replace("\n", "")
+                                        .Replace("\r", "") + "\t";
                         }
                     }
+
                     //table format
                     oRange.Text = oTemp;
 
@@ -61,10 +53,10 @@ namespace VoenKaffServer
                     object AutoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitContent;
 
                     oRange.ConvertToTable(ref Separator, ref RowCount, ref ColumnCount,
-                                          Type.Missing, Type.Missing, ref ApplyBorders,
-                                          Type.Missing, Type.Missing, Type.Missing,
-                                          Type.Missing, Type.Missing, Type.Missing,
-                                          Type.Missing, ref AutoFit, ref AutoFitBehavior, Type.Missing);
+                        Type.Missing, Type.Missing, ref ApplyBorders,
+                        Type.Missing, Type.Missing, Type.Missing,
+                        Type.Missing, Type.Missing, Type.Missing,
+                        Type.Missing, ref AutoFit, ref AutoFitBehavior, Type.Missing);
 
                     oRange.Select();
 
@@ -89,7 +81,8 @@ namespace VoenKaffServer
                     //table style 
                     //oDoc.Application.Selection.Tables[1].set_Style("Grid Table 4 - Accent 5");
                     oDoc.Application.Selection.Tables[1].Rows[1].Select();
-                    oDoc.Application.Selection.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                    oDoc.Application.Selection.Cells.VerticalAlignment =
+                        Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
                     oDoc.Application.Selection.Tables[1].Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
                     oDoc.Application.Selection.Tables[1].Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
 
@@ -115,6 +108,5 @@ namespace VoenKaffServer
                 MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

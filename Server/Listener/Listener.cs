@@ -2,9 +2,9 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using VoenKaffServer.Listener.Handlers;
+using Server.Listener.Handlers;
 
-namespace VoenKaffServer.Listener
+namespace Server.Listener
 {
     public class Listener
     {

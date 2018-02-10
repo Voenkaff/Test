@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VoenKaffServer.Wrappers
+namespace Server.Wrappers
 {
     public class Result
     {

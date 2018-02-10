@@ -1,4 +1,4 @@
-﻿namespace VoenKaffServer
+﻿namespace Server.Forms
 {
     partial class FormLogin
     {
