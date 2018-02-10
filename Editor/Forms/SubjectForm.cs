@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Models;
-using Services.Services.Implementations;
+using Services.Configuration;
 using Services.Services.Implementations.FileServices;
 
 namespace Editor.Forms
@@ -15,7 +15,7 @@ namespace Editor.Forms
         public SubjectForm()
         {
             InitializeComponent();
-            _subjectFileService = new SubjectFileService(EditorConfiguration.GetInstance().SaveFolder);
+            _subjectFileService = new SubjectFileService(ConfigContainer.GetConfig<EditorConfig>().SaveFolder);
             LoadSubjects();
         }
 

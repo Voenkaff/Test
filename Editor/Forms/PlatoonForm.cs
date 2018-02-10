@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Editor.Forms.Workers;
+using Services.Configuration;
 
 namespace Editor.Forms
 {
@@ -11,7 +12,7 @@ namespace Editor.Forms
         public PlatoonsForm()
         {
             InitializeComponent();
-            _platoonWorker = new PlatoonWorker(EditorConfiguration.GetInstance().SaveFolder);
+            _platoonWorker = new PlatoonWorker(ConfigContainer.GetConfig<EditorConfig>().SaveFolder);
 
             PlatoonsListBox.Items.AddRange(_platoonWorker.GetPlatoonNamesAsObjects());
         }

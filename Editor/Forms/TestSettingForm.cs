@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
+using Services.Configuration;
 using Services.Services.Implementations.FileServices;
 
 namespace Editor.Forms
@@ -14,8 +15,7 @@ namespace Editor.Forms
 
         private void FillSubjectList()
         {
-            var configuration = EditorConfiguration.GetInstance();
-            var subjectFileService = new SubjectFileService(configuration.SaveFolder);
+            var subjectFileService = new SubjectFileService(ConfigContainer.GetConfig<EditorConfig>().SaveFolder);
             var subjects = subjectFileService.Load();
             SelectSubjectComboBox.Items.AddRange(subjects.Select(s => (object) s.Name).ToArray());
         }

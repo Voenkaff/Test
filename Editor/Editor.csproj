@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditorConfiguration.cs" />
+    <Compile Include="EditorConfig.cs" />
     <Compile Include="Forms\PlatoonForm.cs">
       <SubType>Form</SubType>
     </Compile>
