@@ -27,7 +27,8 @@ namespace VoenKaffStartClient
             }
             else
             {
-                MessageBox.Show("Неверно задан порт!", "Неправильное значение порта", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)", @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Port.Text = "";
             }
         }
@@ -42,7 +43,8 @@ namespace VoenKaffStartClient
             }
             else
             {
-                MessageBox.Show("Неверно задан ip-адрес!", "Неправильное значение ip-адреса", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)", @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -50,7 +52,8 @@ namespace VoenKaffStartClient
         {
             if (!new TestConnection().Connect())
             {
-                MessageBox.Show("Не удалось подключиться к серверу!", "Не удалось подключиться к серверу", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)", @"Есть несохраненные результаты!", MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             Visible = false;
         }

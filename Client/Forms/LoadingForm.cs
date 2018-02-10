@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Client.Services.Implementations;
 using Client.TestUpdater;
+using Services.Configuration;
 
 namespace Client.Forms
 {
@@ -18,7 +18,7 @@ namespace Client.Forms
         {
             LoadingStatusLabel.Text = @"Ожидание подключения";
 
-            var configuration = ClientConfiguration.GetInstance();
+            var configuration = ConfigContainer.GetConfig<ClientConfig>();
 
             var testUpdater = new ClientTestUpdater(configuration.ServerIp, configuration.ServerPort);
             LoadingTestBackgroundWorker.RunWorkerAsync(testUpdater);

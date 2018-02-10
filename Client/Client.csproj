@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationService.cs" />
+    <Compile Include="ClientConfig.cs" />
     <Compile Include="Forms\StartForm.cs">
       <SubType>Form</SubType>
     </Compile>

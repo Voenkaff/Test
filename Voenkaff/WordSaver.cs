@@ -142,7 +142,7 @@ namespace Voenkaff
                 catch (IOException e)
                 {
                     MessageBox.Show("Не удалось сохранить файл, возможно он уже существует "+e.Message,
-                        "Не удалось сохранить файл",
+                        @"Есть несохраненные результаты!",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }

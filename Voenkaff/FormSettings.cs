@@ -35,7 +35,7 @@ namespace Voenkaff
             }
             else
             {
-                var dialogResult = MessageBox.Show("Папки " + path + " не существует, создать?", "Папки не существует",
+                var dialogResult = MessageBox.Show("Папки " + path + " не существует, создать?", @"Есть несохраненные результаты!",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
                 {

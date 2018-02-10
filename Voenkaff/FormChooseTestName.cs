@@ -154,7 +154,8 @@ namespace Voenkaff
                 }
                 else
                 {
-                    MessageBox.Show("Такой тест уже существует!", "Ошибка!", MessageBoxButtons.OK,
+                    MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)", @"Есть несохраненные результаты!", MessageBoxButtons.OK,
                         MessageBoxIcon.Exclamation);
                 }
             }
@@ -186,7 +187,8 @@ namespace Voenkaff
                 }
                 else
                 {
-                    MessageBox.Show("Такой тест уже существует!", "Ошибка!", MessageBoxButtons.OK,
+                    MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)", @"Есть несохраненные результаты!", MessageBoxButtons.OK,
                         MessageBoxIcon.Exclamation);
                 }
             }

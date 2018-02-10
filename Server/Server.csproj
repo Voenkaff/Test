@@ -74,13 +74,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
+    <Compile Include="ServerConfig.cs" />
     <Compile Include="DynamicParams.cs" />
-    <Compile Include="Forms\FormStart.cs">
+    <Compile Include="Forms\StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormStart.Designer.cs">
-      <DependentUpon>FormStart.cs</DependentUpon>
+    <Compile Include="Forms\StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Listener\Handlers\ConnectionHandler.cs" />
     <Compile Include="Listener\Handlers\GetImageHandler.cs" />
@@ -89,28 +89,28 @@
     <Compile Include="Listener\Handlers\ICommandHandler.cs" />
     <Compile Include="Listener\Handlers\GetTestInformationHandler.cs" />
     <Compile Include="Listener\Listener.cs" />
-    <Compile Include="Forms\FormLogin.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\FormSettings.cs">
+    <Compile Include="Forms\SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSettings.Designer.cs">
-      <DependentUpon>FormSettings.cs</DependentUpon>
+    <Compile Include="Forms\SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResultsSaver.cs" />
     <Compile Include="WordSaver.cs" />
     <Compile Include="Wrappers\Result.cs" />
-    <EmbeddedResource Include="Forms\FormStart.resx">
-      <DependentUpon>FormStart.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,8 +122,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\FormSettings.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

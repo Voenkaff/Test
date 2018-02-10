@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using Client.Services;
 using Client.Services.Implementations;
+using Services.Configuration;
 
 namespace Client.TestUpdater
 {
@@ -12,8 +13,11 @@ namespace Client.TestUpdater
         public ClientTestUpdater(string serverId, int serverPort)
         {
             _serverConnectionService = new ServerConnectionService(serverId, serverPort);
+
+            var config = ConfigContainer.GetConfig<ClientConfig>();
+
             _clientTestFileService =
-                new ClientTestFileService(ClientConfiguration.GetInstance().TestFolder, ClientConfiguration.GetInstance().ImageFolder);
+                new ClientTestFileService(config.TestFolder, config.ImageFolder);
         }
 
         public void Update(BackgroundWorker worker, DoWorkEventArgs e)

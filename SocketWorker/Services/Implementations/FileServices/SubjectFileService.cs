@@ -1,6 +1,6 @@
 ﻿using Models;
 
-namespace Services.Services.Implementations
+namespace Services.Services.Implementations.FileServices
 {
     public class SubjectFileService : FileService<Subject>
     {

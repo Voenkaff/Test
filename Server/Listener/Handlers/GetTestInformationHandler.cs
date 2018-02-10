@@ -1,4 +1,5 @@
 ﻿using Models.Socket;
+using Services.Configuration;
 using Services.Services;
 using Services.Services.Implementations;
 
@@ -12,7 +13,7 @@ namespace Server.Listener.Handlers
         public GetTestInformationHandler(IStreamWrapperService streamWrapperService)
         {
             _streamWrapperService = streamWrapperService;
-            _testDirectoryService = new TestDirectoryService(Configuration.GetTestFolderPath());
+            _testDirectoryService = new TestDirectoryService(ConfigContainer.GetConfig<ServerConfig>().TestFolder);
         }
 
         public void Handle(Command command)

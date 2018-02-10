@@ -5,32 +5,26 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Server.Properties;
 using Server.Wrappers;
-using VoenKaffServer;
 
 namespace Server.Forms
 {
-    public partial class FormStart : Form
+    public partial class StartForm : Form
     {
         private delegate void StringArgReturningVoidDelegate(string text);
 
-        private FormSettings _settings;
-
-        private readonly FormLogin _formLogin;
+        private SettingForm _settings;
+        
         public ResultsSaver ResultsSaver;
 
-        public FormStart(FormLogin formLogin)
+        public StartForm()
         {
             InitializeComponent();
-            _formLogin = formLogin;
             ResultInitializer();
             var listener = new Listener.Listener();
             listener.Start();
 
 
-            ResultsSaver = new ResultsSaver(GridResultTest, GridResultStudy);
-
-            MinimumSize = Size;
-            MaximumSize = Size;
+            ResultsSaver = new ResultsSaver(GridResultTest, ResultDataGridView);
         }
 
         private void Initialize()
@@ -43,7 +37,7 @@ namespace Server.Forms
         {
             if (_settings == null || _settings.IsDisposed)
             {
-                _settings = new FormSettings();
+                _settings = new SettingForm();
             }
 
             _settings.Visible = true;
@@ -74,7 +68,7 @@ namespace Server.Forms
 
                 if (resultObj.ResultType == "Тренировка")
                 {
-                    GridResultStudy.Rows.Add(
+                    ResultDataGridView.Rows.Add(
                         resultObj.Course,
                         resultObj.TestName,
                         resultObj.Platoon,
@@ -90,7 +84,7 @@ namespace Server.Forms
         private void UpdateResults()
         {
             var results = new List<Result>();
-            foreach (DataGridViewRow row in GridResultStudy.Rows)
+            foreach (DataGridViewRow row in ResultDataGridView.Rows)
             {
                 if (row.Cells[2].Value != null)
                 {
@@ -153,7 +147,7 @@ namespace Server.Forms
 
                     if (result.ResultType == "Тренировка")
                     {
-                        GridResultStudy.Rows.Add(
+                        ResultDataGridView.Rows.Add(
                             result.Course,
                             result.TestName,
                             result.Platoon,
@@ -170,8 +164,10 @@ namespace Server.Forms
 
         private void выйтиИзАккаунтаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            _formLogin.Visible = true;
+            Hide();
+            var loginForm = new LoginForm();
+            loginForm.Closed += (s, args) => Close();
+            loginForm.Show();
         }
 
         private void тестированиеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -222,7 +218,7 @@ namespace Server.Forms
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             Environment.Exit(0);

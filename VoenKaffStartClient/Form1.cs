@@ -33,8 +33,9 @@ namespace VoenKaffStartClient
             var runningProccess = from proc in Process.GetProcesses(".") orderby proc.Id select proc;
             if (runningProccess.Count(p => p.ProcessName.Contains("VoenKaffStartClient")) > 1)
             {
-                MessageBox.Show("Программа уже запущена, невозможно запустить ещё один экземпляр",
-                    "Программа уже запущена", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)",
+                    @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
             InitializeComponent();
@@ -71,8 +72,9 @@ namespace VoenKaffStartClient
 
             if (errorCounter == 9)
             {
-                MessageBox.Show("Не удалось загрузить тесты, попробуйте перезапустить программу",
-                    "Не удалось загрузить тесты", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)",
+                    @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
 

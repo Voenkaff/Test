@@ -123,7 +123,8 @@ namespace VoenKaffStartClient
                 }
                 else
                 {
-                    MessageBox.Show("Такой взвод уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)", @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
             }

@@ -2,7 +2,7 @@
 using System.IO;
 using Newtonsoft.Json;
 
-namespace Services.Services.Implementations
+namespace Services.Services.Implementations.FileServices
 {
     public class FileService<T>
     {

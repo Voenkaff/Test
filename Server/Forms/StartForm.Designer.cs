@@ -1,6 +1,6 @@
 ﻿namespace Server.Forms
 {
-    partial class FormStart
+    partial class StartForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выйтиИзАккаунтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.скачатьДокументToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.тестированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.обучениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SignOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DownloadFileInTestModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DownloadFileInTrainingModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GridResultTest = new System.Windows.Forms.DataGridView();
-            this.tabControlTest = new System.Windows.Forms.TabControl();
-            this.tabPageTest = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.GridResultStudy = new System.Windows.Forms.DataGridView();
             this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Platoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Timestamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ControllTestTab = new System.Windows.Forms.TabControl();
+            this.tabPageTest = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ResultDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,19 +53,19 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridResultTest)).BeginInit();
-            this.tabControlTest.SuspendLayout();
+            this.ControllTestTab.SuspendLayout();
             this.tabPageTest.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridResultStudy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.настройкиToolStripMenuItem,
-            this.выйтиИзАккаунтаToolStripMenuItem,
-            this.скачатьДокументToolStripMenuItem});
+            this.SettingToolStripMenuItem,
+            this.SignOutToolStripMenuItem,
+            this.DownloadToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -73,43 +73,43 @@
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = " Меню";
             // 
-            // настройкиToolStripMenuItem
+            // SettingToolStripMenuItem
             // 
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
-            this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
+            this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
+            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.SettingToolStripMenuItem.Text = "Настройки";
+            this.SettingToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
-            // выйтиИзАккаунтаToolStripMenuItem
+            // SignOutToolStripMenuItem
             // 
-            this.выйтиИзАккаунтаToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.выйтиИзАккаунтаToolStripMenuItem.Name = "выйтиИзАккаунтаToolStripMenuItem";
-            this.выйтиИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
-            this.выйтиИзАккаунтаToolStripMenuItem.Text = "Выйти из аккаунта";
-            this.выйтиИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзАккаунтаToolStripMenuItem_Click);
+            this.SignOutToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem";
+            this.SignOutToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.SignOutToolStripMenuItem.Text = "Выйти из аккаунта";
+            this.SignOutToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзАккаунтаToolStripMenuItem_Click);
             // 
-            // скачатьДокументToolStripMenuItem
+            // DownloadToolStripMenuItem
             // 
-            this.скачатьДокументToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.тестированиеToolStripMenuItem,
-            this.обучениеToolStripMenuItem});
-            this.скачатьДокументToolStripMenuItem.Name = "скачатьДокументToolStripMenuItem";
-            this.скачатьДокументToolStripMenuItem.Size = new System.Drawing.Size(193, 20);
-            this.скачатьДокументToolStripMenuItem.Text = "Скачать в виде документа Word";
+            this.DownloadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DownloadFileInTestModeToolStripMenuItem,
+            this.DownloadFileInTrainingModeToolStripMenuItem});
+            this.DownloadToolStripMenuItem.Name = "DownloadToolStripMenuItem";
+            this.DownloadToolStripMenuItem.Size = new System.Drawing.Size(193, 20);
+            this.DownloadToolStripMenuItem.Text = "Скачать в виде документа Word";
             // 
-            // тестированиеToolStripMenuItem
+            // DownloadFileInTestModeToolStripMenuItem
             // 
-            this.тестированиеToolStripMenuItem.Name = "тестированиеToolStripMenuItem";
-            this.тестированиеToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.тестированиеToolStripMenuItem.Text = "Тестирование";
-            this.тестированиеToolStripMenuItem.Click += new System.EventHandler(this.тестированиеToolStripMenuItem_Click);
+            this.DownloadFileInTestModeToolStripMenuItem.Name = "DownloadFileInTestModeToolStripMenuItem";
+            this.DownloadFileInTestModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DownloadFileInTestModeToolStripMenuItem.Text = "Тестирование";
+            this.DownloadFileInTestModeToolStripMenuItem.Click += new System.EventHandler(this.тестированиеToolStripMenuItem_Click);
             // 
-            // обучениеToolStripMenuItem
+            // DownloadFileInTrainingModeToolStripMenuItem
             // 
-            this.обучениеToolStripMenuItem.Name = "обучениеToolStripMenuItem";
-            this.обучениеToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.обучениеToolStripMenuItem.Text = "Обучение";
-            this.обучениеToolStripMenuItem.Click += new System.EventHandler(this.обучениеToolStripMenuItem_Click);
+            this.DownloadFileInTrainingModeToolStripMenuItem.Name = "DownloadFileInTrainingModeToolStripMenuItem";
+            this.DownloadFileInTrainingModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DownloadFileInTrainingModeToolStripMenuItem.Text = "Обучение";
+            this.DownloadFileInTrainingModeToolStripMenuItem.Click += new System.EventHandler(this.обучениеToolStripMenuItem_Click);
             // 
             // GridResultTest
             // 
@@ -131,58 +131,6 @@
             this.GridResultTest.Size = new System.Drawing.Size(884, 483);
             this.GridResultTest.TabIndex = 2;
             this.GridResultTest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridResult_CellContentClick);
-            // 
-            // tabControlTest
-            // 
-            this.tabControlTest.Controls.Add(this.tabPageTest);
-            this.tabControlTest.Controls.Add(this.tabPage2);
-            this.tabControlTest.Location = new System.Drawing.Point(12, 27);
-            this.tabControlTest.Name = "tabControlTest";
-            this.tabControlTest.SelectedIndex = 0;
-            this.tabControlTest.Size = new System.Drawing.Size(902, 519);
-            this.tabControlTest.TabIndex = 3;
-            // 
-            // tabPageTest
-            // 
-            this.tabPageTest.Controls.Add(this.GridResultTest);
-            this.tabPageTest.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTest.Name = "tabPageTest";
-            this.tabPageTest.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTest.Size = new System.Drawing.Size(894, 493);
-            this.tabPageTest.TabIndex = 0;
-            this.tabPageTest.Text = "Тестирование";
-            this.tabPageTest.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.GridResultStudy);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(894, 493);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Обучение";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // GridResultStudy
-            // 
-            this.GridResultStudy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.GridResultStudy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridResultStudy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.GridResultStudy.Location = new System.Drawing.Point(5, 5);
-            this.GridResultStudy.Margin = new System.Windows.Forms.Padding(2);
-            this.GridResultStudy.Name = "GridResultStudy";
-            this.GridResultStudy.RowTemplate.Height = 24;
-            this.GridResultStudy.Size = new System.Drawing.Size(884, 483);
-            this.GridResultStudy.TabIndex = 3;
             // 
             // Course
             // 
@@ -238,6 +186,58 @@
             this.Timestamp.ReadOnly = true;
             this.Timestamp.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // ControllTestTab
+            // 
+            this.ControllTestTab.Controls.Add(this.tabPageTest);
+            this.ControllTestTab.Controls.Add(this.tabPage2);
+            this.ControllTestTab.Location = new System.Drawing.Point(12, 27);
+            this.ControllTestTab.Name = "ControllTestTab";
+            this.ControllTestTab.SelectedIndex = 0;
+            this.ControllTestTab.Size = new System.Drawing.Size(902, 519);
+            this.ControllTestTab.TabIndex = 3;
+            // 
+            // tabPageTest
+            // 
+            this.tabPageTest.Controls.Add(this.GridResultTest);
+            this.tabPageTest.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTest.Name = "tabPageTest";
+            this.tabPageTest.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTest.Size = new System.Drawing.Size(894, 493);
+            this.tabPageTest.TabIndex = 0;
+            this.tabPageTest.Text = "Тестирование";
+            this.tabPageTest.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.ResultDataGridView);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(894, 493);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Обучение";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ResultDataGridView
+            // 
+            this.ResultDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.ResultDataGridView.Location = new System.Drawing.Point(5, 5);
+            this.ResultDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.ResultDataGridView.Name = "ResultDataGridView";
+            this.ResultDataGridView.RowTemplate.Height = 24;
+            this.ResultDataGridView.Size = new System.Drawing.Size(884, 483);
+            this.ResultDataGridView.TabIndex = 3;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -292,25 +292,25 @@
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // FormStart
+            // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 558);
-            this.Controls.Add(this.tabControlTest);
+            this.Controls.Add(this.ControllTestTab);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormStart";
+            this.Name = "StartForm";
             this.Text = "Сервер тестирования";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormStart_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridResultTest)).EndInit();
-            this.tabControlTest.ResumeLayout(false);
+            this.ControllTestTab.ResumeLayout(false);
             this.tabPageTest.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridResultStudy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,16 +318,16 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SettingToolStripMenuItem;
         private System.Windows.Forms.DataGridView GridResultTest;
-        private System.Windows.Forms.ToolStripMenuItem выйтиИзАккаунтаToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControlTest;
+        private System.Windows.Forms.ToolStripMenuItem SignOutToolStripMenuItem;
+        private System.Windows.Forms.TabControl ControllTestTab;
         private System.Windows.Forms.TabPage tabPageTest;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView GridResultStudy;
-        private System.Windows.Forms.ToolStripMenuItem скачатьДокументToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem тестированиеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem обучениеToolStripMenuItem;
+        private System.Windows.Forms.DataGridView ResultDataGridView;
+        private System.Windows.Forms.ToolStripMenuItem DownloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DownloadFileInTestModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DownloadFileInTrainingModeToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Course;
         private System.Windows.Forms.DataGridViewTextBoxColumn TestName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Platoon;

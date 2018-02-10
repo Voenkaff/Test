@@ -3,17 +3,16 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using Server.Listener.Handlers;
+using Services.Configuration;
 
 namespace Server.Listener
 {
     public class Listener
     {
-        private readonly DynamicParams _parameters;
         private readonly Thread _thread;
 
         public Listener()
         {
-            _parameters = new DynamicParams();
             _thread = new Thread(Listen);
         }
 
@@ -33,10 +32,9 @@ namespace Server.Listener
 
             try
             {
-                var ip = _parameters.Get().IpAdress;
-                var port = 8080;
+                var config = ConfigContainer.GetConfig<ServerConfig>();
                 
-                listener = new TcpListener(IPAddress.Parse(ip), port);
+                listener = new TcpListener(IPAddress.Parse(config.ServerIp), config.ServerPort);
                 
                 listener.Start();
 

@@ -153,7 +153,7 @@ namespace Voenkaff
                 }
                 catch
                 {
-                    var result = MessageBox.Show("Невозможно добавить файл " + file, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    var result = MessageBox.Show("Невозможно добавить файл " + file, @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -204,7 +204,8 @@ namespace Voenkaff
 
                     else
                     {
-                        MessageBox.Show("Нельзя удалить все задания!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)", @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
 
                     
@@ -317,8 +318,9 @@ namespace Voenkaff
                 }
                 catch
                 {
-                    var result = MessageBox.Show("Невозможно открыть выбранный файл",
-                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    var result = MessageBox.Show(@"Закрыть без сохранения результатов? 
+(Чтобы сохранить результаты, войдите как преподаватель)",
+                        @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -467,7 +469,7 @@ namespace Voenkaff
             new PictureCreator().CreatePictures(this,filename.Substring(0,filename.LastIndexOf("\\", StringComparison.Ordinal)));
             // сохраняем текст в файл
             System.IO.File.WriteAllText(filename, testJson);
-            MessageBox.Show("Файл сохранен");
+            MessageBox.Show(@"Пожалуйста, введите имя пользователя и пароль");
         }
 
 

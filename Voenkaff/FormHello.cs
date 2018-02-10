@@ -209,7 +209,7 @@ namespace Voenkaff
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(e.Message, @"Есть несохраненные результаты!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -400,7 +400,7 @@ namespace Voenkaff
                 filename.Substring(0, filename.LastIndexOf("\\", StringComparison.Ordinal)));
             // сохраняем текст в файл
             System.IO.File.WriteAllText(filename, testJson);
-            MessageBox.Show("Файл сохранен");
+            MessageBox.Show(@"Пожалуйста, введите имя пользователя и пароль");
         }
 
 
@@ -471,7 +471,7 @@ namespace Voenkaff
                 picureCreator.CreatePictures(keyValue.Value, new DynamicParams().GetPath());
             }
 
-            MessageBox.Show("Файл сохранен");
+            MessageBox.Show(@"Пожалуйста, введите имя пользователя и пароль");
         }
 
 
