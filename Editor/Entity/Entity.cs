@@ -1,6 +1,6 @@
-﻿namespace Voenkaff.Entity
+﻿namespace Editor.Entity
 {
-    abstract class Entity<T>
+    public abstract class Entity<T>
     {
        public T Instance { get; set; } 
     }

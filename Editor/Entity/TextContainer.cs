@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Models;
 
-namespace Voenkaff.Entity
+namespace Editor.Entity
 {
     public class TextContainer : Entity<TextBox>
     {

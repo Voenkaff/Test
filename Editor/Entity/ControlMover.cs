@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Voenkaff.Entity
+namespace Editor.Entity
 {
     public static class ControlMover
     {

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Models;
 
-namespace Voenkaff.Entity
+namespace Editor.Entity
 {
-    class PictureBoxScalable:Entity<PictureBox>
+    public class PictureBoxScalable:Entity<PictureBox>
     {
         private Rectangle _rectProposedSize = Rectangle.Empty;
         private readonly Test _form;
