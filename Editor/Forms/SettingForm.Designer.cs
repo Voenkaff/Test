@@ -28,49 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Закрыть = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.directory = new System.Windows.Forms.TextBox();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.SavePathLabel = new System.Windows.Forms.Label();
+            this.SavePathTextBox = new System.Windows.Forms.TextBox();
+            this.SavePathFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.OpenFileDialogButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Закрыть
+            // SaveButton
             // 
-            this.Закрыть.Location = new System.Drawing.Point(213, 221);
-            this.Закрыть.Margin = new System.Windows.Forms.Padding(2);
-            this.Закрыть.Name = "Закрыть";
-            this.Закрыть.Size = new System.Drawing.Size(113, 30);
-            this.Закрыть.TabIndex = 5;
-            this.Закрыть.Text = "Закрыть";
-            this.Закрыть.UseVisualStyleBackColor = true;
+            this.SaveButton.Location = new System.Drawing.Point(521, 48);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(113, 30);
+            this.SaveButton.TabIndex = 5;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // label1
+            // SavePathLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(31, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Директория с тестами:";
+            this.SavePathLabel.AutoSize = true;
+            this.SavePathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SavePathLabel.Location = new System.Drawing.Point(11, 9);
+            this.SavePathLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SavePathLabel.Name = "SavePathLabel";
+            this.SavePathLabel.Size = new System.Drawing.Size(143, 15);
+            this.SavePathLabel.TabIndex = 4;
+            this.SavePathLabel.Text = "Директория с тестами:";
             // 
-            // directory
+            // SavePathTextBox
             // 
-            this.directory.Location = new System.Drawing.Point(182, 56);
-            this.directory.Margin = new System.Windows.Forms.Padding(2);
-            this.directory.Name = "directory";
-            this.directory.Size = new System.Drawing.Size(210, 20);
-            this.directory.TabIndex = 3;
-            this.directory.Text = "D:\\\\";
+            this.SavePathTextBox.Location = new System.Drawing.Point(175, 9);
+            this.SavePathTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.SavePathTextBox.Name = "SavePathTextBox";
+            this.SavePathTextBox.Size = new System.Drawing.Size(368, 20);
+            this.SavePathTextBox.TabIndex = 3;
+            this.SavePathTextBox.Text = "D:\\\\";
+            // 
+            // OpenFileDialogButton
+            // 
+            this.OpenFileDialogButton.Location = new System.Drawing.Point(548, 7);
+            this.OpenFileDialogButton.Name = "OpenFileDialogButton";
+            this.OpenFileDialogButton.Size = new System.Drawing.Size(86, 23);
+            this.OpenFileDialogButton.TabIndex = 6;
+            this.OpenFileDialogButton.Text = "Обозреватель";
+            this.OpenFileDialogButton.UseVisualStyleBackColor = true;
+            this.OpenFileDialogButton.Click += new System.EventHandler(this.OpenFileDialogButton_Click);
             // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 277);
-            this.Controls.Add(this.Закрыть);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.directory);
+            this.ClientSize = new System.Drawing.Size(641, 89);
+            this.Controls.Add(this.OpenFileDialogButton);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.SavePathLabel);
+            this.Controls.Add(this.SavePathTextBox);
             this.Name = "SettingForm";
             this.Text = "Настройки";
             this.ResumeLayout(false);
@@ -80,8 +94,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Закрыть;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox directory;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label SavePathLabel;
+        private System.Windows.Forms.TextBox SavePathTextBox;
+        private System.Windows.Forms.FolderBrowserDialog SavePathFolderBrowserDialog;
+        private System.Windows.Forms.Button OpenFileDialogButton;
     }
 }

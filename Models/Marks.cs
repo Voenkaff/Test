@@ -4,6 +4,6 @@
     {
         public int Excellent { get; set; }
         public int Good { get; set; }
-        public int Satisfactory { get; set; }
+        public int Satisfaction { get; set; }
     }
 }

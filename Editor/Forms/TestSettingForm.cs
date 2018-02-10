@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using Models;
 using Services.Configuration;
 using Services.Services.Implementations.FileServices;
 
@@ -7,10 +9,21 @@ namespace Editor.Forms
 {
     public partial class TestSettingForm : Form
     {
-        public TestSettingForm()
+        private readonly Test _test;
+
+        public TestSettingForm(Test test = null)
         {
+            _test = test;
             InitializeComponent();
             FillSubjectList();
+
+            if (_test == null) return;
+
+            InputTestNameTextBox.Text = _test.Name;
+            SelectSubjectComboBox.SelectedItem = _test.Subject.Name;
+            InputExcellentMarkTextBox.Text = _test.Marks.Excellent.ToString();
+            InputGoodMarkTextBox.Text = _test.Marks.Good.ToString();
+            InputSatisfactionMarkTextBox.Text = _test.Marks.Satisfaction.ToString();
         }
 
         private void FillSubjectList()
@@ -24,7 +37,46 @@ namespace Editor.Forms
         {
             if (ValidateInputs())
             {
+                var testDevidedFileService =
+                    new TestDevidedFileService(ConfigContainer.GetConfig<EditorConfig>().SaveFolder);
 
+                var fileUpdateActions = new List<FileUpdateAction<Test>>
+                {
+                    new FileUpdateAction<Test>
+                    {
+                        FileName = InputTestNameTextBox.Text + ".test",
+                        SaveInformation = new Test
+                        {
+                            Name = InputTestNameTextBox.Text,
+                            Marks = new Marks
+                            {
+                                Excellent = Convert(InputExcellentMarkTextBox.Text),
+                                Good = Convert(InputGoodMarkTextBox.Text),
+                                Satisfaction = Convert(InputSatisfactionMarkTextBox.Text)
+                            },
+                            Subject = new Subject
+                            {
+                                Name = (string) SelectSubjectComboBox.SelectedItem
+                            }
+                        },
+                        Type = FileUpdateActionType.Save
+                    }
+                };
+
+                if (_test != null)
+                {
+                    fileUpdateActions.Add(new FileUpdateAction<Test>
+                    {
+                        FileName = _test.Name,
+                        Type = FileUpdateActionType.Remove
+                    });
+                }
+
+                testDevidedFileService.Update(fileUpdateActions);
+
+                Close();
+                
+                MessageBox.Show(@"Сохранение теста прошло успешно", @"Тест сохранен", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -80,11 +132,14 @@ namespace Editor.Forms
 
         private static bool IsMarkValid(string mark)
         {
-            int intMark;
-
-            var result = int.TryParse(mark, out intMark);
-
+            var result = int.TryParse(mark, out var intMark);
             return result && intMark <= 100 && intMark >= 0;
+        }
+
+        private static int Convert(string mark)
+        {
+            var isSuccess = int.TryParse(mark, out var resultValue);
+            return isSuccess ? resultValue : 0;
         }
     }
 }
