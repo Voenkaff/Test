@@ -2,9 +2,9 @@
 
 namespace Client.Forms
 {
-    public partial class TestForm : Form
+    public partial class FormInstruction : Form
     {
-        public TestForm()
+        public FormInstruction()
         {
             InitializeComponent();
         }

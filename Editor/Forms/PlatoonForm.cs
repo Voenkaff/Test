@@ -73,6 +73,8 @@ namespace Editor.Forms
 
         private void AddFewStudentButton_Click(object sender, EventArgs e)
         {
+            var addFewStudentsForm = new AddFewStudentsForm(this, _platoonWorker.GetPlatoon(GetSelectedPlatoonName()));
+            addFewStudentsForm.Show();
         }
 
         private void SavePlatoonsButton_Click(object sender, EventArgs e)
@@ -198,6 +200,11 @@ namespace Editor.Forms
         private static bool IsEnterButton(char key)
         {
             return key == '\r';
+        }
+
+        public void AddStudentToListBox(object[] item)
+        {
+            StudentsListBox.Items.AddRange(item);
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UpdateTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel = new System.Windows.Forms.Panel();
             this.ChoiceSubjectComboBox = new System.Windows.Forms.ComboBox();
             this.ChoiceSubjectLabel = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.SelectModeGroupBox = new System.Windows.Forms.GroupBox();
             this.TrainingModeRadioButton = new System.Windows.Forms.RadioButton();
             this.TestingModeRadioButton = new System.Windows.Forms.RadioButton();
-            this.UpdateTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.MenuStrip.SuspendLayout();
             this.Panel.SuspendLayout();
@@ -69,6 +69,13 @@
             this.SettingToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.SettingToolStripMenuItem.Text = "Настройки";
             this.SettingToolStripMenuItem.Click += new System.EventHandler(this.SettingToolStripMenuItem_Click);
+            // 
+            // UpdateTestsToolStripMenuItem
+            // 
+            this.UpdateTestsToolStripMenuItem.Name = "UpdateTestsToolStripMenuItem";
+            this.UpdateTestsToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.UpdateTestsToolStripMenuItem.Text = "Обновить тесты";
+            this.UpdateTestsToolStripMenuItem.Click += new System.EventHandler(this.UpdateTestsToolStripMenuItem_Click);
             // 
             // Panel
             // 
@@ -238,13 +245,6 @@
             this.TestingModeRadioButton.TabIndex = 0;
             this.TestingModeRadioButton.Text = "Режим тестирования";
             this.TestingModeRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // UpdateTestsToolStripMenuItem
-            // 
-            this.UpdateTestsToolStripMenuItem.Name = "UpdateTestsToolStripMenuItem";
-            this.UpdateTestsToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
-            this.UpdateTestsToolStripMenuItem.Text = "Обновить тесты";
-            this.UpdateTestsToolStripMenuItem.Click += new System.EventHandler(this.UpdateTestsToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 

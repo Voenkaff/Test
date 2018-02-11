@@ -34,10 +34,14 @@ namespace Client.Forms
 
         private void ShowInstractionButton_Click(object sender, System.EventArgs e)
         {
+            var formInstruction = new FormInstruction();
+            formInstruction.Show();
         }
 
         private void SettingToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            var formSettings = new FormSettings();
+            formSettings.Show();
         }
 
         private void UpdateTestsToolStripMenuItem_Click(object sender, System.EventArgs e)
