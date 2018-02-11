@@ -9,7 +9,7 @@ namespace Services.Services.Implementations.FileServices
 {
     public class ImageDevidedFileService : DevidedFileService<byte[]>
     {
-        public ImageDevidedFileService(string savePath) : base(savePath, "images", new List<string> {".btmp"},
+        public ImageDevidedFileService(string savePath) : base(savePath, "images", new List<string> {".bin"},
             ObjectType.Image)
         {
         }
@@ -38,7 +38,7 @@ namespace Services.Services.Implementations.FileServices
 
         public Bitmap LoadAsBitmap(string fileName)
         {
-            var bytes = Load(fileName);
+            var bytes = Load(fileName)[fileName];
 
             using (var stream = new MemoryStream(bytes))
             {

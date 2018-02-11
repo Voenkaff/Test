@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
+using System.Linq;
 using Client.Services;
 using Client.Services.Implementations;
+using Models.Test;
 using Services.Configuration;
 using Services.Services.Implementations.FileServices;
 
@@ -66,12 +68,26 @@ namespace Client.TestUpdater
             state.State = ClientTestUpdaterStates.SavingTests;
             worker.ReportProgress(0, state);
 
-            _clientTestFileService.SaveTests(tests);
+
+            var saveFolder = ConfigContainer.GetConfig<ClientConfig>().SaveFolder;
+            var testDevidedFileService = new TestDevidedFileService(saveFolder);
+            testDevidedFileService.Update(tests.Select(pair => new FileUpdateAction<Test>
+            {
+                FileName = pair.Key,
+                SaveInformation = pair.Value,
+                Type = FileUpdateActionType.Save
+            }).ToList());
 
             state.State = ClientTestUpdaterStates.SavingImages;
             worker.ReportProgress(0, state);
-
-            _clientTestFileService.SaveImages(images);
+            
+            var imageDevidedFileService = new ImageDevidedFileService(saveFolder);
+            imageDevidedFileService.Update(images.Select(pair => new FileUpdateAction<byte[]>
+            {
+                FileName = pair.Key,
+                SaveInformation = pair.Value,
+                Type = FileUpdateActionType.Save
+            }).ToList());
         }
     }
 }

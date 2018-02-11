@@ -1,24 +1,24 @@
 ﻿using Models.Socket;
 using Services.Configuration;
 using Services.Services;
-using Services.Services.Implementations;
+using Services.Services.Implementations.FileServices;
 
 namespace Server.Listener.Handlers
 {
     public class GetTestInformationHandler : ICommandHandler
     {
         private readonly IStreamWrapperService _streamWrapperService;
-        private readonly ITestDirectoryService _testDirectoryService;
 
         public GetTestInformationHandler(IStreamWrapperService streamWrapperService)
         {
             _streamWrapperService = streamWrapperService;
-            _testDirectoryService = new TestDirectoryService(ConfigContainer.GetConfig<ServerConfig>().TestFolder);
         }
 
         public void Handle(Command command)
         {
-            var testInformationObjects = _testDirectoryService.GetTestInformationObjects();
+            var saveFolder = ConfigContainer.GetConfig<ServerConfig>().SaveFolder;
+            var testDevidedFileService = new TestDevidedFileService(saveFolder);
+            var testInformationObjects = testDevidedFileService.GetInformationObjects();
             _streamWrapperService.SendObject(testInformationObjects);
         }
     }

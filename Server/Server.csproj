@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Listener\Handlers\GetPlatoonsHandler.cs" />
     <Compile Include="Listener\Handlers\GetSubjectsHandler.cs" />
+    <Compile Include="Listener\ListenerContainer.cs" />
     <Compile Include="ServerConfig.cs" />
     <Compile Include="DynamicParams.cs" />
     <Compile Include="Forms\StartForm.cs">

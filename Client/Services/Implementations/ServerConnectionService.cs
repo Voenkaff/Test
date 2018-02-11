@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net.Sockets;
 using Models;
 using Models.Socket;
+using Models.Test;
 using Models.TransferObjects;
 using Services.Services.Implementations;
 
@@ -44,10 +45,10 @@ namespace Client.Services.Implementations
             return Get<List<InformationObject>>(Command.GetTestInformation());
         }
 
-        public List<TestTransferObject> GetTests(List<InformationObject> testInformationObjects)
+        public Dictionary<string, Test> GetTests(List<InformationObject> testInformationObjects)
         {
             var testNames = testInformationObjects.Select(response => response.FileName).ToList();
-            return Get<List<TestTransferObject>>(Command.Tests(testNames));
+            return Get<Dictionary<string, Test>>(Command.Tests(testNames));
         }
 
         public List<InformationObject> GetImageInfromationObjects()
@@ -55,10 +56,20 @@ namespace Client.Services.Implementations
             return Get<List<InformationObject>>(Command.GetImagesInfromation());
         }
 
-        public List<ImageTransferObject> GetImages(List<InformationObject> informationObjects)
+        public Dictionary<string, byte[]> GetImages(List<InformationObject> informationObjects)
         {
             var commands = informationObjects.Select(i => Command.GetImages(i.FileName)).ToList();
-            return Get<ImageTransferObject>(commands);
+            var images = Get<Dictionary<string, byte[]>>(commands);
+
+
+            IEnumerable<KeyValuePair<string, byte[]>> result = new List<KeyValuePair<string, byte[]>>();
+
+            foreach (var image in images)
+            {
+                result = result.Concat(image);
+            }
+
+            return result.ToDictionary(pair => pair.Key, pair => pair.Value);
         }
 
         public List<Platoon> GetPlatoons()

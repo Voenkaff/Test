@@ -71,23 +71,34 @@ namespace Services.Services.Implementations.FileServices
             return result;
         }
 
-        public T Load(string fileName)
+        public Dictionary<string, T> Load(string fileName)
         {
             if (!Directory.Exists(_directory) || !File.Exists(Path.Combine(_directory, fileName)))
             {
-                return default(T);
+                return new Dictionary<string, T>();
             }
 
-            using (var stream = new StreamReader(Path.Combine(_directory, fileName)))
+            var filePath = Path.Combine(_directory, fileName);
+
+            using (var stream = new StreamReader(filePath))
             {
                 var json = stream.ReadToEnd();
-                return JsonConvert.DeserializeObject<T>(json);
+                return new Dictionary<string, T>
+                {
+                    {fileName, JsonConvert.DeserializeObject<T>(json)}
+                };
             }
         }
 
         private IEnumerable<FileInfo> GetAllRelevantFiles()
         {
             var directoryInfo = new DirectoryInfo(_directory);
+
+            if (!directoryInfo.Exists)
+            {
+                return new List<FileInfo>();
+            }
+
             return directoryInfo.EnumerateFiles().Where(file => _fileExtensions.Contains(file.Extension));
         }
 

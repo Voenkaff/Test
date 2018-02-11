@@ -26,7 +26,7 @@ namespace Server.Listener
             _thread.Interrupt();
         }
 
-        private void Listen()
+        private static void Listen()
         {
             TcpListener listener = null;
 

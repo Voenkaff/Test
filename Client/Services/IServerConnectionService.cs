@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models;
+using Models.Test;
 using Models.TransferObjects;
 
 namespace Client.Services
@@ -8,9 +9,9 @@ namespace Client.Services
     {
         bool IsConnected();
         List<InformationObject> GetTestInformationObjects();
-        List<TestTransferObject> GetTests(List<InformationObject> testInformationObjects);
+        Dictionary<string, Test> GetTests(List<InformationObject> testInformationObjects);
         List<InformationObject> GetImageInfromationObjects();
-        List<ImageTransferObject> GetImages(List<InformationObject> informationObjects);
+        Dictionary<string, byte[]> GetImages(List<InformationObject> informationObjects);
         List<Platoon> GetPlatoons();
         List<Subject> GetSubjects();
     }

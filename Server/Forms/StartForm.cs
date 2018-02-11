@@ -20,9 +20,6 @@ namespace Server.Forms
         {
             InitializeComponent();
             ResultInitializer();
-            var listener = new Listener.Listener();
-            listener.Start();
-
 
             ResultsSaver = new ResultsSaver(GridResultTest, ResultDataGridView);
         }

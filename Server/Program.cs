@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Server.Forms;
+using Server.Listener;
 
 namespace Server
 {
@@ -12,6 +13,7 @@ namespace Server
         [STAThread]
         public static void Main()
         {
+            ListenerContainer.Run();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());

@@ -55,9 +55,7 @@
     <Compile Include="Services\Implementations\FileServices\TestDevidedFileService.cs" />
     <Compile Include="Services\IStreamWrapperService.cs" />
     <Compile Include="Services\ISubjectFileService.cs" />
-    <Compile Include="Services\ITestDirectoryService.cs" />
     <Compile Include="Services\Implementations\StreamWrapperService.cs" />
-    <Compile Include="Services\Implementations\TestDirectoryService.cs" />
     <Compile Include="Services\Implementations\FileServices\SubjectFileService.cs" />
   </ItemGroup>
   <ItemGroup>
