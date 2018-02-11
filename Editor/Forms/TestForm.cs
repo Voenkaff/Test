@@ -18,7 +18,7 @@ namespace Editor.Forms
             _test = test;
 
             InitializeComponent();
-            
+
             AddFirstTaskToTestIfIsTestEmpty(_test);
 
             DrawTasksLink();
@@ -65,7 +65,10 @@ namespace Editor.Forms
 
         private void InsertImageButton_Click(object sender, System.EventArgs e)
         {
-            using (var dialog = new OpenFileDialog{ Filter = @"Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG|All files (*.*)|*.*" })
+            using (var dialog = new OpenFileDialog
+            {
+                Filter = @"Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG|All files (*.*)|*.*"
+            })
             {
                 var dialogResult = dialog.ShowDialog();
 
@@ -74,22 +77,43 @@ namespace Editor.Forms
                     return;
                 }
 
-                var bitmap = new Bitmap(dialog.FileName);
-                //bitmap.Save();
-                
-                //var fileName = Path.GetRandomFileName() + ".btmp";
+                var resultFileName = SaveImage(dialog.FileName);
 
-                //new ImageDevidedFileService(ConfigContainer.GetConfig<EditorConfig>().SaveFolder).Update(
-                //    new List<FileUpdateAction<Bitmap>>
-                //    {
-                //        new FileUpdateAction<Bitmap>
-                //        {
-                //            FileName = fileName,
-                //            SaveInformation = bitmap,
-                //            Type = FileUpdateActionType.Save
-                //        }
-                //    });
+                var task = (Task) TestCreatorPanel.Tag;
+
+                var imageTaskElement = new ImageTaskElement
+                {
+                    ImageName = resultFileName,
+                    Height = 300,
+                    Width = 300
+                };
+
+                task.ImageTaskElements.Add(imageTaskElement);
+
+                var pictureBox = CreatePictureBox(imageTaskElement);
+
+                TestCreatorPanel.Controls.Add(pictureBox);
             }
+        }
+
+        private string SaveImage(string fromPath)
+        {
+            var fileName = Path.GetRandomFileName() + ".bin";
+
+            var bitmap = new Bitmap(fromPath);
+
+            new ImageDevidedFileService(ConfigContainer.GetConfig<EditorConfig>().SaveFolder).Update(
+                new List<FileUpdateAction<Bitmap>>
+                {
+                        new FileUpdateAction<Bitmap>
+                        {
+                            FileName = fileName,
+                            SaveInformation = bitmap,
+                            Type = FileUpdateActionType.Save
+                        }
+                });
+
+            return fileName;
         }
 
         private void InsertAnswerButton_Click(object sender, System.EventArgs e)
@@ -98,7 +122,6 @@ namespace Editor.Forms
 
         private void HideLabelButton_Click(object sender, System.EventArgs e)
         {
-
         }
 
         private void SaveAndCloseButton_Click(object sender, System.EventArgs e)
@@ -184,6 +207,7 @@ namespace Editor.Forms
 
             foreach (var taskImageTaskElement in task.ImageTaskElements)
             {
+                TestCreatorPanel.Controls.Add(CreatePictureBox(taskImageTaskElement));
             }
         }
 
@@ -213,6 +237,27 @@ namespace Editor.Forms
             return richTextBox;
         }
 
+        private static PictureBox CreatePictureBox(ImageTaskElement element)
+        {
+            var bitmap = new ImageDevidedFileService(ConfigContainer.GetConfig<EditorConfig>().SaveFolder).LoadAsBitmap(element.ImageName);
+            
+            //TODO Сделать адекватное изменение размеров изображения
+
+            var pictureBox = new PictureBox
+            {
+                Image = bitmap,
+                Height = element.Height,
+                Width = element.Width,
+                Location = element.Point,
+                Tag = element
+            };
+
+            //TODO Добавить обработку событий драг эн дроп
+            //TODO Добавть контекстное меню с удалением. Можно скопировать из CreateAnswerRichTextBox
+
+            return pictureBox;
+        }
+
         private void RemoveAnswerRichTextBox(object sender, System.EventArgs e)
         {
             var menuItem = (MenuItem) sender;
@@ -227,7 +272,6 @@ namespace Editor.Forms
 
             TestCreatorPanel.Controls.Remove(richTextBox);
         }
-
-        //private void 
+        
     }
 }
