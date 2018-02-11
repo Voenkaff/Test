@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Models;
+using Models.Test;
 using Services.Configuration;
 using Services.Services.Implementations.FileServices;
 
@@ -130,6 +130,11 @@ namespace Editor.Forms
         private void OpenTestEditor(object sender, System.EventArgs e)
         {
             var test = (Test) ((Button) sender).Parent.Tag;
+
+            Hide();
+            var testForm = new TestForm(test);
+            testForm.Closed += (s, args) => Close();
+            testForm.Show();
         }
 
         private void SettingTest(object sender, System.EventArgs e)

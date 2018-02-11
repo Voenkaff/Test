@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Models;
+using Models.Test;
 using Models.TransferObjects;
 using Newtonsoft.Json;
 
@@ -73,7 +74,7 @@ namespace Services.Services.Implementations
                 {
                     FileName = fileInfo.Name,
                     LastUpdateTime = fileInfo.LastWriteTime,
-                    Type = ObjectType.Picture
+                    Type = ObjectType.Image
                 })
                 .ToList();
         }

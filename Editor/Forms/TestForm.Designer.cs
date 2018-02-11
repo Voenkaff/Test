@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.saveTest = new System.Windows.Forms.SaveFileDialog();
             this.panelTaskStart = new System.Windows.Forms.Panel();
             this.TestCreatorPanel = new System.Windows.Forms.Panel();
@@ -40,9 +39,10 @@
             this.HideLabelButton = new System.Windows.Forms.Button();
             this.groupBoxShowTBLabels = new System.Windows.Forms.GroupBox();
             this.ControlPanel = new System.Windows.Forms.Panel();
+            this.SaveAndCloseButton = new System.Windows.Forms.Button();
             this.CreateTaskButton = new System.Windows.Forms.Button();
             this.TaskListPanel = new System.Windows.Forms.Panel();
-            this.SaveAndCloseButton = new System.Windows.Forms.Button();
+            this.TasksFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTaskStart.SuspendLayout();
             this.groupBoxShowTBLabels.SuspendLayout();
             this.ControlPanel.SuspendLayout();
@@ -168,6 +168,17 @@
             this.ControlPanel.Size = new System.Drawing.Size(145, 642);
             this.ControlPanel.TabIndex = 8;
             // 
+            // SaveAndCloseButton
+            // 
+            this.SaveAndCloseButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.SaveAndCloseButton.Location = new System.Drawing.Point(14, 561);
+            this.SaveAndCloseButton.Name = "SaveAndCloseButton";
+            this.SaveAndCloseButton.Size = new System.Drawing.Size(119, 57);
+            this.SaveAndCloseButton.TabIndex = 4;
+            this.SaveAndCloseButton.Text = "Сохранить и закрыть";
+            this.SaveAndCloseButton.UseVisualStyleBackColor = true;
+            this.SaveAndCloseButton.Click += new System.EventHandler(this.SaveAndCloseButton_Click);
+            // 
             // CreateTaskButton
             // 
             this.CreateTaskButton.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -188,6 +199,7 @@
             // 
             this.TaskListPanel.AutoScroll = true;
             this.TaskListPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TaskListPanel.Controls.Add(this.TasksFlowLayoutPanel);
             this.TaskListPanel.Controls.Add(this.CreateTaskButton);
             this.TaskListPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.TaskListPanel.Location = new System.Drawing.Point(0, 0);
@@ -195,16 +207,12 @@
             this.TaskListPanel.Size = new System.Drawing.Size(165, 642);
             this.TaskListPanel.TabIndex = 9;
             // 
-            // SaveAndCloseButton
+            // TasksFlowLayoutPanel
             // 
-            this.SaveAndCloseButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.SaveAndCloseButton.Location = new System.Drawing.Point(14, 561);
-            this.SaveAndCloseButton.Name = "SaveAndCloseButton";
-            this.SaveAndCloseButton.Size = new System.Drawing.Size(119, 57);
-            this.SaveAndCloseButton.TabIndex = 4;
-            this.SaveAndCloseButton.Text = "Сохранить и закрыть";
-            this.SaveAndCloseButton.UseVisualStyleBackColor = true;
-            this.SaveAndCloseButton.Click += new System.EventHandler(this.SaveAndCloseButton_Click);
+            this.TasksFlowLayoutPanel.Location = new System.Drawing.Point(3, 103);
+            this.TasksFlowLayoutPanel.Name = "TasksFlowLayoutPanel";
+            this.TasksFlowLayoutPanel.Size = new System.Drawing.Size(159, 536);
+            this.TasksFlowLayoutPanel.TabIndex = 2;
             // 
             // TestForm
             // 
@@ -229,8 +237,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.SaveFileDialog saveTest;
         private System.Windows.Forms.Panel panelTaskStart;
         private System.Windows.Forms.Panel TestCreatorPanel;
@@ -245,5 +251,6 @@
         private System.Windows.Forms.Button CreateTaskButton;
         private System.Windows.Forms.Panel TaskListPanel;
         private System.Windows.Forms.Button SaveAndCloseButton;
+        private System.Windows.Forms.FlowLayoutPanel TasksFlowLayoutPanel;
     }
 }

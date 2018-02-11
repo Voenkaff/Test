@@ -12,6 +12,6 @@ namespace Models
     public enum ObjectType
     {
         Test,
-        Picture
+        Image
     }
 }

@@ -143,6 +143,10 @@
       <Project>{B183635E-5328-4837-8E5E-C610DEC30EB6}</Project>
       <Name>Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VoenKaffStartClient\VoenKaffStartClient.csproj">
+      <Project>{A88232F0-CB3B-4241-9645-029A1CCF6DD4}</Project>
+      <Name>VoenKaffStartClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

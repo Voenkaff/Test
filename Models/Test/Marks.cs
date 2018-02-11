@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace Models.Test
 {
     public class Marks
     {
