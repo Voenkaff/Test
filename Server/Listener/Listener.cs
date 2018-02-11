@@ -13,7 +13,10 @@ namespace Server.Listener
 
         public Listener()
         {
-            _thread = new Thread(Listen);
+            _thread = new Thread(Listen)
+            {
+                IsBackground = true
+            };
         }
 
         public void Start()

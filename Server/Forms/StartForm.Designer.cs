@@ -78,7 +78,6 @@
             this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
             this.SettingToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.SettingToolStripMenuItem.Text = "Настройки";
-            this.SettingToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
             // SignOutToolStripMenuItem
             // 
@@ -86,7 +85,6 @@
             this.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem";
             this.SignOutToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.SignOutToolStripMenuItem.Text = "Выйти из аккаунта";
-            this.SignOutToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзАккаунтаToolStripMenuItem_Click);
             // 
             // DownloadToolStripMenuItem
             // 
@@ -102,14 +100,12 @@
             this.DownloadFileInTestModeToolStripMenuItem.Name = "DownloadFileInTestModeToolStripMenuItem";
             this.DownloadFileInTestModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.DownloadFileInTestModeToolStripMenuItem.Text = "Тестирование";
-            this.DownloadFileInTestModeToolStripMenuItem.Click += new System.EventHandler(this.тестированиеToolStripMenuItem_Click);
             // 
             // DownloadFileInTrainingModeToolStripMenuItem
             // 
             this.DownloadFileInTrainingModeToolStripMenuItem.Name = "DownloadFileInTrainingModeToolStripMenuItem";
             this.DownloadFileInTrainingModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.DownloadFileInTrainingModeToolStripMenuItem.Text = "Обучение";
-            this.DownloadFileInTrainingModeToolStripMenuItem.Click += new System.EventHandler(this.обучениеToolStripMenuItem_Click);
             // 
             // GridResultTest
             // 
@@ -130,7 +126,6 @@
             this.GridResultTest.RowTemplate.Height = 24;
             this.GridResultTest.Size = new System.Drawing.Size(884, 483);
             this.GridResultTest.TabIndex = 2;
-            this.GridResultTest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridResult_CellContentClick);
             // 
             // Course
             // 
@@ -303,7 +298,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StartForm";
             this.Text = "Сервер тестирования";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormStart_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridResultTest)).EndInit();
