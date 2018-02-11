@@ -74,7 +74,7 @@ namespace Client.Services.Implementations
 
         public List<Platoon> GetPlatoons()
         {
-            return Get<List<Platoon>>(Command.GetSubjects());
+            return Get<List<Platoon>>(Command.GetPlatoons());
         }
 
         public List<Subject> GetSubjects()
