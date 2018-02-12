@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows.Forms;
-using Newtonsoft.Json;
-using Server.Properties;
-using Server.Wrappers;
+﻿using System.Windows.Forms;
 
 namespace Server.Forms
 {
@@ -16,13 +10,20 @@ namespace Server.Forms
 
         //public ResultsSaver ResultsSaver;
 
-        //public StartForm()
-        //{
-        //    InitializeComponent();
+        public StartForm()
+      {
+            InitializeComponent();
         //    ResultInitializer();
 
         //    ResultsSaver = new ResultsSaver(GridResultTest, ResultDataGridView);
-        //}
+
+      }
+
+        private void SettingToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            var settingForm = new SettingForm();
+            settingForm.Show();
+        }
 
         //private void Initialize()
         //{

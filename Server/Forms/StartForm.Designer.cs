@@ -78,6 +78,7 @@
             this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
             this.SettingToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.SettingToolStripMenuItem.Text = "Настройки";
+            this.SettingToolStripMenuItem.Click += new System.EventHandler(this.SettingToolStripMenuItem_Click);
             // 
             // SignOutToolStripMenuItem
             // 
@@ -98,13 +99,13 @@
             // DownloadFileInTestModeToolStripMenuItem
             // 
             this.DownloadFileInTestModeToolStripMenuItem.Name = "DownloadFileInTestModeToolStripMenuItem";
-            this.DownloadFileInTestModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DownloadFileInTestModeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.DownloadFileInTestModeToolStripMenuItem.Text = "Тестирование";
             // 
             // DownloadFileInTrainingModeToolStripMenuItem
             // 
             this.DownloadFileInTrainingModeToolStripMenuItem.Name = "DownloadFileInTrainingModeToolStripMenuItem";
-            this.DownloadFileInTrainingModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DownloadFileInTrainingModeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.DownloadFileInTrainingModeToolStripMenuItem.Text = "Обучение";
             // 
             // GridResultTest
